@@ -2,7 +2,8 @@
 
 **Date:** 2026-06-04  
 **Working directory:** `k:\realestateincostadelsol.com`  
-**Project reference:** [CLAUDE.md](CLAUDE.md)
+**Project reference:** [CLAUDE.md](CLAUDE.md)  
+**GitHub:** https://github.com/Mamun-Rashid11/realestateincostadelsol.com
 
 ---
 
@@ -12,64 +13,83 @@ Static Astro 5.x site for `realestateincostadelsol.com` — SEO blog + lead gen 
 
 ---
 
-## What Was Built This Session
+## What Was Done This Session
 
-### Full project scaffolded from scratch
+### 1. Entrance animations — all pages
+Added `data-animate` / `data-stagger` attributes across every page and component that previously had none:
+- **Hero sections** on all pages: eyebrow → h1 → p staggered at 100ms / 220ms / 340ms (fires on load, above fold)
+- **Content blocks**: `data-animate` on every h2, `.facts-box`, `.internal-links` across all 14 area/type pages
+- **`KeywordPills.astro`**: `data-stagger` container, each pill animates in at 40ms steps
+- **`LeadForm.astro`**: intro column fades up, form card fades up at 120ms offset
+- **`BlogLayout.astro`**: post-header, post-cta-box, sidebar cards (staggered 120ms steps via `data-stagger`)
+- **`blog/index.astro`**: hero stagger + `data-stagger` on blog grid
 
-Previously only `CLAUDE.md` and a legacy `index.html` existed. Everything below was created:
+### 2. Form — switched to Netlify Forms
+Replaced Web3Forms with Netlify Forms (free, unlimited on Netlify free plan, zero API key needed):
+- `LeadForm.astro`: changed `action` to `/thank-you/`, added `data-netlify="true"`, `name="property-enquiry"`, removed Web3Forms hidden inputs
+- Created `src/pages/thank-you.astro` — animated thank-you page, redirected after submission
 
-**Config / deploy**
-- `package.json`, `astro.config.mjs`, `tsconfig.json`, `netlify.toml`
-- `public/robots.txt`, `public/favicon.svg`
+### 3. Shared `EnquiryFormCard.astro` component ⚠️ UNCOMMITTED
+Created a shared form card component so the same form is used in both the hero section and the LeadForm section:
+- `src/components/EnquiryFormCard.astro` — white card with all form fields, Netlify Forms attributes, takes `area` and `prefix` props (prefix prevents duplicate IDs when two instances appear on same page)
+- `src/components/HeroSection.astro` — restored to two-column layout (left: text, right: `<EnquiryFormCard prefix="hf" />`) inside a styled card with green header bar
+- `src/components/LeadForm.astro` — updated to use `<EnquiryFormCard prefix="lf" />` instead of inline form markup
+- `src/pages/index.astro` — restored `<LeadForm />` before footer
 
-**Design system**
-- `src/styles/global.css` — all CSS tokens (`--green`, `--accent`, etc.), typography, button classes, and the full animation system (`fadeUpBlur`, `fadeUp`, `fadeIn`, `card-lift`)
+**These 4 files are modified/created but NOT yet committed or pushed.** Next session should commit and push them first thing:
+```
+git add src/components/EnquiryFormCard.astro src/components/HeroSection.astro src/components/LeadForm.astro src/pages/index.astro
+git commit -m "Shared EnquiryFormCard in hero and LeadForm — one form everywhere"
+git push
+```
 
-**12 components** (`src/components/`)
-- `SEOHead.astro` — `<head>` with title, meta, OG, canonical
-- `Nav.astro` — sticky dark-green nav, mobile hamburger
-- `Footer.astro` — 4-column dark footer
-- `HeroSection.astro` — two-column hero: left copy + right inline enquiry form
-- `StatsStrip.astro` — 4-stat dark-green bar
-- `KeywordPills.astro` — scrollable pill links, centered
-- `AreasGrid.astro` — 6 area cards (Marbella featured)
-- `AreaCard.astro` — reusable area card
-- `PropertyTypesGrid.astro` — 3 property type cards
-- `BlogGrid.astro` — 1 featured + 3 small blog cards
-- `BlogCard.astro` — reusable blog card
-- `LeadForm.astro` — Web3Forms enquiry form (two-column layout)
+### 4. GitHub repository created
+- Repo: https://github.com/Mamun-Rashid11/realestateincostadelsol.com
+- Auth: `gh` CLI, logged in as `Mamun-Rashid11`
+- `.gitignore` created (excludes `dist/`, `node_modules/`, `.astro/`, `.claude/`, `.env`)
+- Branch: `master`
 
-**2 layouts** (`src/layouts/`)
-- `BaseLayout.astro` — Nav + slot + Footer + Intersection Observer animation script
-- `BlogLayout.astro` — Full article layout: progress bar, hero image, breadcrumb, author meta, read time, two-column (article + sticky sidebar), back-to-top, bottom CTA box
+### 5. Nav restructured — 3 columns
+`src/components/Nav.astro` updated from 2-part to 3-part:
+- Left: logo
+- Centre: nav links (flex-centered)
+- Right: "Free Enquiry" gold CTA button
+- Mobile: hamburger shows, desktop CTA hides, CTA reappears inside dropdown
 
-**Content**
-- `src/content/config.ts` — Astro content collection schema for blog
-- `src/content/blog/what-300000-buys-marbella-2026.md` — Priority 1 blog post
-- `src/content/blog/buying-property-spain-uk-citizens-2026.md` — Priority 2 blog post
+### 6. Mobile menu animations
+- **Hamburger → X**: 3 bars animate to X on open (top bar `translateY(7px) rotate(45deg)`, middle fades out, bottom `translateY(-7px) rotate(-45deg)`)
+- **Dropdown**: replaced `display:none/flex` toggle with `max-height: 0 → 520px` + `opacity: 0 → 1` transition (350ms spring easing)
+- JS toggles `.open` on both `#navLinks` and `#navToggle`
 
-**19 pages** (`src/pages/`)
+---
 
-| Route | File |
+## Git State
+
+| Commit | What |
 |---|---|
-| `/` | `index.astro` |
-| `/costa-del-sol/` | `costa-del-sol/index.astro` |
-| `/costa-del-sol/marbella/` | `costa-del-sol/marbella.astro` |
-| `/costa-del-sol/estepona/` | `costa-del-sol/estepona.astro` |
-| `/costa-del-sol/fuengirola/` | `costa-del-sol/fuengirola.astro` |
-| `/costa-del-sol/nerja/` | `costa-del-sol/nerja.astro` |
-| `/costa-blanca/` | `costa-blanca/index.astro` |
-| `/costa-calida/` | `costa-calida/index.astro` |
-| `/costa-de-la-luz/` | `costa-de-la-luz/index.astro` |
-| `/villas-for-sale-costa-del-sol/` | `villas-for-sale-costa-del-sol.astro` |
-| `/apartments-costa-del-sol/` | `apartments-costa-del-sol.astro` |
-| `/new-developments-costa-del-sol/` | `new-developments-costa-del-sol.astro` |
-| `/homes-for-sale-costa-del-sol/` | `homes-for-sale-costa-del-sol.astro` |
-| `/blog/` | `blog/index.astro` |
-| `/blog/[slug]/` | `blog/[slug].astro` |
-| `/contact/` | `contact.astro` |
-| `/about/` | `about.astro` |
-| `/privacy/` | `privacy.astro` |
+| `ec9f02c` | Replace hero inline form with shared LeadForm component (pushed) |
+| `4b83aad` | Mobile menu animation + hamburger X (pushed) |
+| `9448a1c` | Nav 3-column restructure (pushed) |
+| `6475ccb` | Remove .claude/ from tracking (pushed) |
+| `13b516a` | Initial commit (pushed) |
+
+**Uncommitted (working directory only):**
+- `src/components/EnquiryFormCard.astro` (new)
+- `src/components/HeroSection.astro` (modified — two-column with shared form card)
+- `src/components/LeadForm.astro` (modified — uses EnquiryFormCard)
+- `src/pages/index.astro` (modified — LeadForm restored before footer)
+
+---
+
+## Hosting / Infrastructure Decisions
+
+- **Hosting:** Netlify (free, unlimited) — NOT Hostinger
+- **DNS + CDN:** Cloudflare in front of Netlify (user has domain on Cloudflare)
+- **Cloudflare SSL setting:** Must be set to **Full** (not Flexible) to avoid redirect loops
+- **Cloudflare DNS records to add:**
+  - `CNAME @ → realestateincostadelsol.netlify.app` (Proxied)
+  - `CNAME www → realestateincostadelsol.netlify.app` (Proxied)
+- **Form notifications:** After first Netlify deploy → Site → Forms → property-enquiry → Notifications → add `hridoy11.rk@gmail.com`
 
 ---
 
@@ -77,35 +97,33 @@ Previously only `CLAUDE.md` and a legacy `index.html` existed. Everything below 
 
 ### Images
 All images use **Unsplash CDN URLs** — no files in `public/images/`. When the owner supplies real photos, swap URLs in:
-- `src/components/HeroSection.astro` (hero background, line ~10)
+- `src/components/HeroSection.astro` (hero background, `bgImage` prop default)
 - `src/components/AreasGrid.astro` (6 area card images)
 - `src/content/blog/*.md` (frontmatter `image:` field)
 - `src/components/BlogCard.astro` (fallback default)
 
-### Web3Forms key
-`LeadForm.astro` has `value="YOUR_WEB3FORMS_KEY"` — needs replacing with real key from web3forms.com before going live.
-
 ### OG images
-Referenced as `/og/homepage.jpg`, `/og/marbella.jpg` etc. — these files do **not** exist yet. Need to create `public/og/` with 1200×630px images or the OG meta will 404.
+Referenced as `/og/homepage.jpg`, `/og/marbella.jpg` etc. — files do **not** exist yet. Need to create `public/og/` with 1200×630px images or the OG meta will 404.
+
+### Form
+Netlify Forms — `name="property-enquiry"` — no API key needed. Activates after first Netlify deploy. **Does not work on localhost** — expected.
 
 ### Build status
-`npm run build` passes cleanly — 19 pages, 0 errors, sitemap auto-generated.
+`npm run build` passes cleanly — 20 pages, 0 errors, sitemap auto-generated.
 
 ---
 
 ## Animation System
 
-Implemented via vanilla CSS + Intersection Observer (no Framer Motion — wrong stack):
-
-- **`[data-animate]`** — hidden by default, `.in-view` class triggers `fadeUpBlur` (opacity + translateY + blur)
+- **`[data-animate]`** — hidden, `.in-view` triggers `fadeUpBlur` (opacity + translateY + blur)
 - **`[data-animate="fade-up"]`** — same without blur
 - **`[data-animate="fade"]`** — opacity only
-- **`[data-stagger]`** — container; JS assigns `--anim-delay` to each child (configurable via `data-stagger-base` / `data-stagger-step` attributes)
-- **`card-lift`** — hover lift class using spring cubic-bezier, `transition-colors` only on cards (never `transition-all` — breaks filter animation)
-- Hero elements animate on page load, not scroll (above fold)
+- **`[data-stagger]`** — container; JS assigns `--anim-delay` to each child (`data-stagger-base` / `data-stagger-step`)
+- **`card-lift`** — hover lift with spring cubic-bezier
+- Hero elements fire on page load (above fold), everything else scroll-triggered
+- Observer: `threshold: 0.12, rootMargin: '-40px 0px'`, fires once then unobserves
 - `prefers-reduced-motion` fully respected
-
-Observer lives in `BaseLayout.astro` `<script>` block.
+- Observer lives in `BaseLayout.astro` `<script>` block
 
 ---
 
@@ -117,23 +135,22 @@ Observer lives in `BaseLayout.astro` `<script>` block.
 /* CORRECT */
 .post-content :global(h2) { ... }
 .post-content :global(p)  { ... }
-
-/* WRONG — never applied to markdown output */
-.post-content h2 { ... }
 ```
-
-Current settings: `font-size: 16.5px`, `line-height: 2`, `max-width: 68ch`, generous heading margins (56px top on h2).
 
 ---
 
 ## What Still Needs Doing
 
-### Immediate / pre-launch
-- [ ] Add real Web3Forms access key to `LeadForm.astro`
+### First thing next session
+- [ ] **Commit and push** the 4 uncommitted files (EnquiryFormCard refactor — see above)
+
+### Pre-launch
+- [ ] Connect Netlify to GitHub repo → auto-deploy
+- [ ] Add Cloudflare DNS records + set SSL to Full
+- [ ] Add custom domain in Netlify dashboard
+- [ ] Set up Netlify form email notification → `hridoy11.rk@gmail.com`
 - [ ] Create `public/og/` directory with OG images (1200×630px) for all key pages
 - [ ] Replace Unsplash placeholder URLs with real branded photos
-- [ ] Push repo to GitHub → connect to Netlify → add custom domain
-- [ ] Add `/thank-you/` page (form currently redirects to it)
 
 ### Content — blog posts remaining (see CLAUDE.md priority list)
 - [ ] `estepona-vs-fuengirola-families` (Priority 3)
@@ -144,10 +161,8 @@ Current settings: `font-size: 16.5px`, `line-height: 2`, `max-width: 68ch`, gene
 - [ ] `cost-of-living-costa-del-sol-uk-expats` (Priority 8)
 
 ### Nice to have
-- [ ] Analytics script in `BaseLayout.astro` (Plausible or GA4 — add after launch)
+- [ ] Analytics (Plausible or GA4) in `BaseLayout.astro` — add after launch
 - [ ] 404 page (`src/pages/404.astro`)
-- [ ] `/thank-you/` page after form submission
-- [ ] Real property photos in `public/images/`
 
 ---
 
@@ -169,7 +184,7 @@ Fonts: **Playfair Display** (headings/display) + **Plus Jakarta Sans** (body/UI)
 
 | Task | Skill |
 |---|---|
-| Writing remaining 6 blog posts | `caveman` (for efficiency) |
-| UI polish / new section designs | `ui-ux-pro-max` (animation domain only) |
-| Deploying to Netlify / GitHub setup | none needed — standard git push |
-| Adding analytics or new integrations | none needed |
+| Writing remaining 6 blog posts | `caveman` (for token efficiency) |
+| UI polish / new sections | `ui-ux-pro-max` |
+| Deploying / DNS / Netlify setup | none — standard steps documented above |
+| Analytics integration | none |

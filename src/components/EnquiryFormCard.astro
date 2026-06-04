@@ -1,0 +1,140 @@
+---
+interface Props {
+  area?: string;
+  prefix?: string;
+}
+const { area = '', prefix = 'ef' } = Astro.props;
+---
+<form
+  class="enquiry-card"
+  name="property-enquiry"
+  method="POST"
+  action="/thank-you/"
+  data-netlify="true"
+>
+  <input type="hidden" name="form-name" value="property-enquiry" />
+
+  <div class="enquiry-card__row">
+    <div class="enquiry-card__field">
+      <label for={`${prefix}-name`}>Full Name *</label>
+      <input type="text" id={`${prefix}-name`} name="name" required placeholder="Your name" />
+    </div>
+    <div class="enquiry-card__field">
+      <label for={`${prefix}-email`}>Email Address *</label>
+      <input type="email" id={`${prefix}-email`} name="email" required placeholder="your@email.com" />
+    </div>
+  </div>
+
+  <div class="enquiry-card__row">
+    <div class="enquiry-card__field">
+      <label for={`${prefix}-budget`}>Budget</label>
+      <select id={`${prefix}-budget`} name="budget">
+        <option value="">Select budget</option>
+        <option>Up to €150,000</option>
+        <option>€150,000 – €300,000</option>
+        <option>€300,000 – €500,000</option>
+        <option>€500,000+</option>
+      </select>
+    </div>
+    <div class="enquiry-card__field">
+      <label for={`${prefix}-area`}>Preferred Area</label>
+      <select id={`${prefix}-area`} name="area">
+        <option value={area}>{area || 'Select area'}</option>
+        <option>Marbella</option>
+        <option>Estepona</option>
+        <option>Fuengirola</option>
+        <option>Nerja</option>
+        <option>Costa Blanca</option>
+        <option>Open to suggestions</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="enquiry-card__row">
+    <div class="enquiry-card__field">
+      <label for={`${prefix}-type`}>Property Type</label>
+      <select id={`${prefix}-type`} name="type">
+        <option value="">Select type</option>
+        <option>Villa</option>
+        <option>Apartment</option>
+        <option>New development</option>
+        <option>Not sure</option>
+      </select>
+    </div>
+    <div class="enquiry-card__field">
+      <label for={`${prefix}-beds`}>Bedrooms</label>
+      <select id={`${prefix}-beds`} name="bedrooms">
+        <option value="">Any</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4+</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="enquiry-card__field">
+    <label for={`${prefix}-message`}>Anything else? (optional)</label>
+    <textarea id={`${prefix}-message`} name="message" rows="3" placeholder="Tell us about your timeline, requirements, or any questions..."></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary enquiry-card__submit">Send Free Enquiry</button>
+  <p class="enquiry-card__note">We typically respond within 2 business hours. Your details are never shared.</p>
+</form>
+
+<style>
+.enquiry-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.enquiry-card__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.enquiry-card__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.enquiry-card__field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.enquiry-card__field input,
+.enquiry-card__field select,
+.enquiry-card__field textarea {
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--off-white);
+  transition: border-color 0.15s;
+  width: 100%;
+}
+.enquiry-card__field input:focus,
+.enquiry-card__field select:focus,
+.enquiry-card__field textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  background: var(--white);
+}
+.enquiry-card__submit { width: 100%; font-size: 15px; padding: 14px; }
+.enquiry-card__note {
+  font-size: 12px;
+  color: var(--text-light);
+  text-align: center;
+  margin: 0;
+}
+@media (max-width: 560px) {
+  .enquiry-card__row { grid-template-columns: 1fr; }
+  .enquiry-card { padding: 20px; }
+}
+</style>

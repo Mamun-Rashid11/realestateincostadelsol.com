@@ -1,4 +1,6 @@
 ---
+import EnquiryFormCard from './EnquiryFormCard.astro';
+
 interface Props {
   heading?: string;
   subheading?: string;
@@ -13,22 +15,33 @@ const {
 <section class="hero" style={`background-image: url('${bgImage}')`}>
   <div class="hero__overlay"></div>
   <div class="container hero__inner">
-    <span class="eyebrow hero__eyebrow" data-animate style="--anim-delay:100ms">Real Estate in Costa del Sol</span>
-    <h1 class="hero__heading" data-animate style="--anim-delay:220ms">{heading}</h1>
-    <p class="hero__sub" data-animate style="--anim-delay:340ms">{subheading}</p>
-    <div class="hero__trust" data-animate style="--anim-delay:460ms">
-      <span>✓ No agent fees</span>
-      <span>✓ UK-based support</span>
-      <span>✓ 2,400+ properties</span>
-      <span>✓ Response within 2 hours</span>
+
+    <div class="hero__left">
+      <span class="eyebrow hero__eyebrow" data-animate style="--anim-delay:100ms">Real Estate in Costa del Sol</span>
+      <h1 class="hero__heading" data-animate style="--anim-delay:220ms">{heading}</h1>
+      <p class="hero__sub" data-animate style="--anim-delay:340ms">{subheading}</p>
+      <div class="hero__trust" data-animate style="--anim-delay:460ms">
+        <span>✓ No agent fees</span>
+        <span>✓ UK-based support</span>
+        <span>✓ 2,400+ properties</span>
+      </div>
     </div>
+
+    <div class="hero__form-wrap" data-animate style="--anim-delay:300ms">
+      <div class="hero__form-header">
+        <strong>Free Property Enquiry</strong>
+        <p>Tell us what you're looking for — we'll respond within 2 hours.</p>
+      </div>
+      <EnquiryFormCard prefix="hf" />
+    </div>
+
   </div>
 </section>
 
 <style>
 .hero {
   position: relative;
-  min-height: 520px;
+  min-height: 680px;
   display: flex;
   align-items: center;
   background-size: cover;
@@ -38,40 +51,62 @@ const {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(27,58,45,0.92) 0%, rgba(27,58,45,0.75) 100%);
+  background: linear-gradient(135deg, rgba(27,58,45,0.9) 0%, rgba(27,58,45,0.72) 100%);
 }
 .hero__inner {
   position: relative;
   z-index: 1;
-  padding-top: 88px;
-  padding-bottom: 88px;
-  max-width: 760px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: center;
+  width: 100%;
 }
-.hero__eyebrow {
-  color: var(--accent);
-  margin-bottom: 16px;
-  display: block;
-}
+.hero__eyebrow { color: var(--accent); margin-bottom: 16px; display: block; }
 .hero__heading {
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
   color: var(--white);
   margin-bottom: 20px;
   line-height: 1.15;
 }
 .hero__sub {
-  font-size: 17px;
+  font-size: 16px;
   color: rgba(255,255,255,0.82);
-  margin-bottom: 36px;
-  line-height: 1.75;
-  max-width: 620px;
+  margin-bottom: 32px;
+  line-height: 1.7;
 }
 .hero__trust {
   display: flex;
-  gap: 24px;
+  gap: 20px;
   flex-wrap: wrap;
   font-size: 13px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.75);
+}
+
+/* Form card wrapper */
+.hero__form-wrap {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.hero__form-header {
+  background: var(--green);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding: 18px 28px;
+}
+.hero__form-header strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+.hero__form-header p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
 }
 
 /* Hero elements animate on load (not scroll-triggered) */
@@ -84,10 +119,17 @@ const {
   .hero [data-animate] { animation: none; opacity: 1; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .hero__form-wrap { max-width: 480px; }
+}
+@media (max-width: 560px) {
   .hero { min-height: auto; }
-  .hero__inner { padding-top: 64px; padding-bottom: 64px; }
-  .hero__heading { font-size: clamp(1.9rem, 6vw, 2.6rem); }
-  .hero__trust { gap: 14px; }
+  .hero__form-wrap { max-width: 100%; }
 }
 </style>
