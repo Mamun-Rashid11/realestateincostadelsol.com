@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+---
+<BaseLayout
+  title="Fuengirola Property for Sale | Real Estate in Costa del Sol"
+  description="Buy property in Fuengirola, Costa del Sol. Great value apartments and townhouses in a family-friendly resort town with strong rental potential."
+  canonical="https://realestateincostadelsol.com/costa-del-sol/fuengirola/"
+  ogImage="/og/fuengirola.jpg"
+>
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-animate style="--anim-delay:100ms">Costa del Sol</span>
+      <h1 data-animate style="--anim-delay:220ms">Fuengirola Property for Sale</h1>
+      <p data-animate style="--anim-delay:340ms">A bustling family-friendly resort with excellent value, great beaches, and strong short-term rental demand.</p>
+    </div>
+  </div>
+
+  <section class="area-content">
+    <div class="container area-content__inner">
+      <div class="facts-box" data-animate>
+        <h3>Fuengirola Property Market — Quick Facts 2026</h3>
+        <ul>
+          <li>Average price: €1,900/m² (range: €1,100–€4,000/m²)</li>
+          <li>Popular zones: Los Boliches, Las Rampas, Miramar, El Ejido</li>
+          <li>Typical budget: €95k–€180k (apartment), €220k–€450k (villa/townhouse)</li>
+          <li>Drive time to Málaga Airport: ~20 minutes</li>
+          <li>One of the largest Scandinavian expat communities in Spain</li>
+        </ul>
+      </div>
+
+      <h2 data-animate>Why Buy in Fuengirola?</h2>
+      <p>Fuengirola is one of the most practical choices on the Costa del Sol. It's just 20 minutes from Málaga Airport, has its own train connection to Málaga city, and offers a full range of amenities — shopping centres, international schools, hospitals, and a wide variety of restaurants and nightlife.</p>
+      <p>For investors, Fuengirola's year-round appeal (it has a large permanent expat population, not just summer tourists) means strong rental demand across all seasons.</p>
+
+      <h2 data-animate>Key Neighbourhoods</h2>
+      <ul>
+        <li><strong>Los Boliches:</strong> Quieter, more residential end. Popular with long-term expats and families.</li>
+        <li><strong>Las Rampas:</strong> Central, close to the beach and promenade. Higher demand for holiday lets.</li>
+        <li><strong>Miramar:</strong> Upmarket residential area on the hills above Fuengirola. Sea views, more spacious.</li>
+      </ul>
+
+      <div class="internal-links" data-animate>
+        <h3>Related Pages</h3>
+        <ul>
+          <li><a href="/costa-del-sol/">← All Costa del Sol Areas</a></li>
+          <li><a href="/blog/estepona-vs-fuengirola-families/">Estepona vs Fuengirola — Which is Better for Families?</a></li>
+          <li><a href="/apartments-costa-del-sol/">Apartments for Sale on Costa del Sol</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadForm area="Fuengirola" heading="Looking for Property in Fuengirola?" />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--green); padding: 80px 0; }
+.page-hero .eyebrow { color: var(--accent); display: block; margin-bottom: 12px; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom: 16px; }
+.page-hero p { color: rgba(255,255,255,0.8); font-size: 16px; max-width: 600px; line-height: 1.7; }
+.area-content { padding: 64px 0; background: var(--white); }
+.area-content__inner { max-width: 800px; }
+.area-content__inner h2 { margin-top: 40px; margin-bottom: 14px; }
+.area-content__inner h2:first-of-type { margin-top: 32px; }
+.area-content__inner p { color: var(--text-muted); margin-bottom: 14px; line-height: 1.8; }
+.area-content__inner ul { margin: 0 0 16px 20px; }
+.area-content__inner li { color: var(--text-muted); margin-bottom: 8px; line-height: 1.7; }
+.facts-box { background: var(--green-lt); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+.facts-box h3 { font-size: 15px; margin-bottom: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+.facts-box ul { margin-left: 20px; }
+.facts-box li { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+.internal-links { background: var(--off-white); border-radius: 8px; padding: 20px 24px; margin-top: 40px; }
+.internal-links h3 { font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; margin-bottom: 10px; }
+.internal-links ul { margin-left: 0; list-style: none; }
+.internal-links li { margin-bottom: 6px; }
+.internal-links a { color: var(--green); font-size: 14px; text-decoration: underline; }
+</style>

@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+---
+<BaseLayout
+  title="Apartments Costa del Sol | Buy Spanish Apartments"
+  description="Find apartments for sale on the Costa del Sol. Studios, 1-beds, penthouses and beachfront flats. Perfect for holidays, investment or retirement."
+  canonical="https://realestateincostadelsol.com/apartments-costa-del-sol/"
+  ogImage="/og/apartments.jpg"
+>
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-animate style="--anim-delay:100ms">Property Type</span>
+      <h1 data-animate style="--anim-delay:220ms">Apartments for Sale on the Costa del Sol</h1>
+      <p data-animate style="--anim-delay:340ms">From beachfront studios to luxurious penthouses — apartments are the most popular property type for UK buyers in Spain.</p>
+    </div>
+  </div>
+
+  <section class="type-content">
+    <div class="container type-content__inner">
+      <div class="facts-box" data-animate>
+        <h3>Apartment Prices — Costa del Sol 2026</h3>
+        <ul>
+          <li>Studio apartment (non-beachfront): €65,000–€120,000</li>
+          <li>1-bed apartment (good location): €95,000–€180,000</li>
+          <li>2-bed apartment (beach area): €140,000–€320,000</li>
+          <li>Penthouse (sea views): €200,000–€700,000+</li>
+          <li>Puerto Banús / Marbella: €200,000+ for 1-bed</li>
+        </ul>
+      </div>
+
+      <h2 data-animate>Why Buy an Apartment?</h2>
+      <p>Apartments are the most popular choice for overseas buyers, especially those buying a second home or investment property. Lower entry price, less maintenance, and communal pools mean they're easier to lock-up-and-leave.</p>
+      <p>For rental investors, apartments in tourist-heavy areas (especially beachfront) can generate 5–7% gross yields with good occupancy from April to October.</p>
+
+      <h2 data-animate>Key Considerations</h2>
+      <ul>
+        <li><strong>Community fees:</strong> Budget €100–€400/month for maintenance, pool, and security costs.</li>
+        <li><strong>Tourist licences:</strong> Not all apartments qualify. Check before buying if holiday rental income is important.</li>
+        <li><strong>IBI (local tax):</strong> Typically €200–€600/year for an apartment.</li>
+        <li><strong>Age of building:</strong> Pre-2000 buildings may need structural or aesthetic updates. New builds cost more but have lower maintenance.</li>
+      </ul>
+
+      <h2 data-animate>Best Areas for Apartments</h2>
+      <ul>
+        <li><a href="/costa-del-sol/fuengirola/"><strong>Fuengirola:</strong></a> Best value beach apartments. 20 mins from airport.</li>
+        <li><a href="/costa-del-sol/marbella/"><strong>Marbella & Puerto Banús:</strong></a> Premium locations, strong rental demand.</li>
+        <li><a href="/costa-del-sol/estepona/"><strong>Estepona:</strong></a> Charming town, growing new-build market, good value.</li>
+        <li><a href="/costa-blanca/"><strong>Costa Blanca:</strong></a> Budget buyers — apartments from €65,000 in Torrevieja.</li>
+      </ul>
+
+      <div class="internal-links" data-animate>
+        <h3>Related Pages</h3>
+        <ul>
+          <li><a href="/costa-del-sol/">Browse All Costa del Sol Areas</a></li>
+          <li><a href="/new-developments-costa-del-sol/">New Developments on Costa del Sol</a></li>
+          <li><a href="/blog/best-rental-yield-costa-del-sol/">Best Rental Yield Areas — Costa del Sol</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadForm heading="Find Your Perfect Apartment" subheading="Tell us your budget and location preference — we'll find the best apartment options across the coast." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--green); padding: 80px 0; }
+.page-hero .eyebrow { color: var(--accent); display: block; margin-bottom: 12px; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom: 16px; }
+.page-hero p { color: rgba(255,255,255,0.8); font-size: 16px; max-width: 600px; line-height: 1.7; }
+.type-content { padding: 64px 0; background: var(--white); }
+.type-content__inner { max-width: 800px; }
+.type-content__inner h2 { margin-top: 40px; margin-bottom: 14px; }
+.type-content__inner h2:first-of-type { margin-top: 32px; }
+.type-content__inner p { color: var(--text-muted); margin-bottom: 14px; line-height: 1.8; }
+.type-content__inner ul { margin: 0 0 16px 20px; }
+.type-content__inner li { color: var(--text-muted); margin-bottom: 8px; line-height: 1.7; }
+.type-content__inner a { color: var(--green); }
+.facts-box { background: var(--green-lt); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+.facts-box h3 { font-size: 15px; margin-bottom: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+.facts-box ul { margin-left: 20px; }
+.facts-box li { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+.internal-links { background: var(--off-white); border-radius: 8px; padding: 20px 24px; margin-top: 40px; }
+.internal-links h3 { font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; margin-bottom: 10px; }
+.internal-links ul { margin-left: 0; list-style: none; }
+.internal-links li { margin-bottom: 6px; }
+.internal-links a { color: var(--green); font-size: 14px; text-decoration: underline; }
+</style>

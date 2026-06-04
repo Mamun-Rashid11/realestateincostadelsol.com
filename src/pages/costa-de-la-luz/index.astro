@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+---
+<BaseLayout
+  title="Costa de la Luz Property | Atlantic Coast Spain"
+  description="Buy property on the Costa de la Luz — Spain's wild Atlantic coast. Unspoilt beaches, whitewashed villages, and great value. Cádiz and Huelva provinces."
+  canonical="https://realestateincostadelsol.com/costa-de-la-luz/"
+>
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-animate style="--anim-delay:100ms">Costa de la Luz</span>
+      <h1 data-animate style="--anim-delay:220ms">Costa de la Luz Property</h1>
+      <p data-animate style="--anim-delay:340ms">Spain's undiscovered Atlantic coast — wild beaches, whitewashed pueblos, and property prices well below the Mediterranean resorts.</p>
+    </div>
+  </div>
+
+  <section class="area-content">
+    <div class="container area-content__inner">
+      <div class="facts-box" data-animate>
+        <h3>Costa de la Luz Quick Facts 2026</h3>
+        <ul>
+          <li>Average price: €1,300/m² (range: €800–€2,800/m²)</li>
+          <li>Key towns: Tarifa, Vejer de la Frontera, Conil, Chiclana, Sanlúcar</li>
+          <li>Airports: Jerez (XRY), Seville (SVQ), Gibraltar (GIB)</li>
+          <li>Famous for: kitesurfing, horse culture, sherry wine, flamingo colonies</li>
+        </ul>
+      </div>
+
+      <h2 data-animate>Why Buy on Costa de la Luz?</h2>
+      <p>The Costa de la Luz is the quieter, wilder alternative to the Costa del Sol. It faces the Atlantic rather than the Mediterranean, which means fresher breezes in summer (welcome in the heat) and a noticeably less developed, more authentic atmosphere.</p>
+      <p>Tarifa has become a hotspot for younger buyers and digital nomads — it's Europe's windsurfing and kitesurfing capital, with a buzzing international scene. Further north, towns like Vejer de la Frontera offer Moorish old-town charm at bargain prices.</p>
+
+      <div class="internal-links" data-animate>
+        <h3>Related Pages</h3>
+        <ul>
+          <li><a href="/">← Homepage</a></li>
+          <li><a href="/costa-del-sol/">Costa del Sol Properties</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadForm area="Costa de la Luz" heading="Interested in Costa de la Luz Property?" />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--green); padding: 80px 0; }
+.page-hero .eyebrow { color: var(--accent); display: block; margin-bottom: 12px; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom: 16px; }
+.page-hero p { color: rgba(255,255,255,0.8); font-size: 16px; max-width: 600px; line-height: 1.7; }
+.area-content { padding: 64px 0; background: var(--white); }
+.area-content__inner { max-width: 800px; }
+.area-content__inner h2 { margin-top: 40px; margin-bottom: 14px; }
+.area-content__inner h2:first-of-type { margin-top: 32px; }
+.area-content__inner p { color: var(--text-muted); margin-bottom: 14px; line-height: 1.8; }
+.facts-box { background: var(--green-lt); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+.facts-box h3 { font-size: 15px; margin-bottom: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+.facts-box ul { margin-left: 20px; }
+.facts-box li { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+.internal-links { background: var(--off-white); border-radius: 8px; padding: 20px 24px; margin-top: 40px; }
+.internal-links h3 { font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; margin-bottom: 10px; }
+.internal-links ul { margin-left: 0; list-style: none; }
+.internal-links li { margin-bottom: 6px; }
+.internal-links a { color: var(--green); font-size: 14px; text-decoration: underline; }
+</style>

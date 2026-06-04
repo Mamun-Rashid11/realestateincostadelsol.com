@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+---
+<BaseLayout
+  title="Contact Us | Real Estate in Costa del Sol"
+  description="Get in touch with our team. Free property enquiry service for UK and US buyers looking to purchase in Costa del Sol."
+  canonical="https://realestateincostadelsol.com/contact/"
+>
+  <div class="contact-hero">
+    <div class="container">
+      <span class="eyebrow" data-animate style="--anim-delay:100ms">Get in Touch</span>
+      <h1 data-animate style="--anim-delay:220ms">Free Property Enquiry</h1>
+      <p data-animate style="--anim-delay:340ms">Tell us what you're looking for and we'll do the legwork. No fees, no spam, no pressure.</p>
+    </div>
+  </div>
+  <LeadForm
+    heading="Send Us a Free Enquiry"
+    subheading="We typically respond within 2 business hours. Our team is based in the UK."
+  />
+</BaseLayout>
+
+<style>
+.contact-hero {
+  background: var(--green);
+  padding: 64px 0;
+  text-align: center;
+}
+.contact-hero .eyebrow { color: var(--accent); display: block; margin-bottom: 12px; }
+.contact-hero h1 { color: var(--white); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; }
+.contact-hero p { color: rgba(255,255,255,0.8); font-size: 16px; max-width: 480px; margin: 0 auto; }
+</style>

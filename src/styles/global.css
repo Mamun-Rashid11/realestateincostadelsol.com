@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --green:       #1B3A2D;
+  --green2:      #254D3C;
+  --green3:      #2F6349;
+  --green-mid:   #4A7C62;
+  --green-lt:    #E8F0EB;
+  --green-xlt:   #F2F7F4;
+  --white:       #FFFFFF;
+  --off-white:   #F8FAF8;
+  --border:      #D4E2D9;
+  --border-lt:   #E8F0EB;
+  --text:        #1B3A2D;
+  --text-muted:  #5A7268;
+  --text-light:  #8FAA9A;
+  --accent:      #C8A96E;
+  --accent-dark: #A88A4E;
+  --dark-footer: #0D1F16;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--off-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+}
+
+.eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+}
+
+.section-h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.btn {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--green2); }
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--white);
+}
+.btn-accent:hover { background: var(--accent-dark); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+.btn-outline:hover { background: var(--green); color: var(--white); }
+
+/* ─────────────────────────────────────────
+   ANIMATION SYSTEM
+   fadeUpBlur: opacity + translateY + blur
+   Triggered by Intersection Observer via
+   [data-animate] → .in-view class
+───────────────────────────────────────── */
+
+@keyframes fadeUpBlur {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Hidden state before animation */
+[data-animate] {
+  opacity: 0;
+}
+
+/* Fired once element enters viewport */
+[data-animate].in-view {
+  animation: fadeUpBlur 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--anim-delay, 0ms);
+}
+
+/* Variant: no blur (for images, heavy elements) */
+[data-animate="fade-up"].in-view {
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--anim-delay, 0ms);
+}
+
+/* Variant: fade only (sidebars, overlays) */
+[data-animate="fade"].in-view {
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: var(--anim-delay, 0ms);
+}
+
+/* ── Card hover lift (spring-feel via cubic-bezier) ──
+   Use transition-colors separately from transform
+   to avoid fighting scroll animations             */
+.card-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease,
+              border-color 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate],
+  [data-animate].in-view {
+    opacity: 1;
+    animation: none;
+  }
+  .card-lift:hover { transform: none; }
+}

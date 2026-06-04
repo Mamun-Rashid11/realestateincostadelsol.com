@@ -1,0 +1,616 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  author: string;
+  image?: string;
+  imageAlt?: string;
+  category?: string;
+  tags?: string[];
+}
+const { title, description, canonical, pubDate, updatedDate, author, image, imageAlt, category = 'Guide', tags = [] } = Astro.props;
+const ogImage = image || '/og/blog-default.jpg';
+
+const dateStr   = pubDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const updatedStr = updatedDate?.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+// Estimate read time from description length as proxy (actual word count from slot isn't available at render)
+const estimatedMins = 8;
+---
+<BaseLayout {title} {description} {canonical} {ogImage}>
+
+  <!-- Reading progress bar -->
+  <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Hero image -->
+  {image && (
+    <div class="post-hero">
+      <img src={image} alt={imageAlt || title} width="1200" height="500" />
+      <div class="post-hero__overlay"></div>
+    </div>
+  )}
+
+  <div class="post-wrap">
+    <div class="container post-container">
+
+      <!-- Main article -->
+      <article class="post-article" id="postContent">
+
+        <!-- Breadcrumb -->
+        <nav class="post-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">›</span>
+          <a href="/blog/">Blog</a>
+          <span aria-hidden="true">›</span>
+          <span>{category}</span>
+        </nav>
+
+        <!-- Header -->
+        <header class="post-header" data-animate style="--anim-delay:80ms">
+          <span class="post-cat">{category}</span>
+          <h1 class="post-title">{title}</h1>
+
+          <div class="post-meta">
+            <div class="post-meta__author">
+              <div class="post-meta__avatar">{author.charAt(0)}</div>
+              <div>
+                <strong>{author}</strong>
+                <time datetime={pubDate.toISOString()}>{dateStr}</time>
+              </div>
+            </div>
+            <div class="post-meta__stats">
+              <span class="post-meta__read">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                {estimatedMins} min read
+              </span>
+              {updatedDate && (
+                <span class="post-meta__updated">Updated {updatedStr}</span>
+              )}
+            </div>
+          </div>
+
+          {tags.length > 0 && (
+            <div class="post-tags" role="list" aria-label="Tags">
+              {tags.map(tag => <span class="post-tag" role="listitem">{tag}</span>)}
+            </div>
+          )}
+        </header>
+
+        <!-- Content -->
+        <div class="post-content">
+          <slot />
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="post-cta-box" data-animate>
+          <div class="post-cta-box__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="post-cta-box__text">
+            <strong>Ready to find your property?</strong>
+            <p>Send a free enquiry — we'll match you with the best options on the Costa del Sol.</p>
+          </div>
+          <a href="/contact/" class="btn btn-accent post-cta-box__btn">Free Enquiry</a>
+        </div>
+
+        <!-- Tags footer -->
+        {tags.length > 0 && (
+          <div class="post-footer-tags">
+            <span class="post-footer-tags__label">Filed under:</span>
+            {tags.map(tag => <a href={`/blog/?tag=${tag}`} class="post-tag post-tag--link">{tag}</a>)}
+          </div>
+        )}
+
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="post-sidebar" aria-label="Article sidebar" data-stagger data-stagger-base="100" data-stagger-step="120">
+
+        <!-- Lead capture card -->
+        <div class="sidebar-card sidebar-card--enquiry" data-animate="fade">
+          <span class="sidebar-card__eyebrow">Free Service</span>
+          <h3>Find Your Property</h3>
+          <p>Tell us your budget and area — we'll do the search for you.</p>
+          <ul class="sidebar-card__list">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              No buyer fees
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              2,400+ properties
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Response in 2 hours
+            </li>
+          </ul>
+          <a href="/contact/" class="btn btn-primary sidebar-card__btn" style="width:100%;text-align:center;display:block;">Send Enquiry</a>
+        </div>
+
+        <!-- Popular guides -->
+        <div class="sidebar-card" data-animate="fade">
+          <h3>Popular Guides</h3>
+          <ul class="sidebar-links">
+            <li><a href="/blog/what-300000-buys-marbella-2026/">What €300k buys in Marbella</a></li>
+            <li><a href="/blog/buying-property-spain-uk-citizens-2026/">Buying as a UK citizen — 2026</a></li>
+            <li><a href="/costa-del-sol/marbella/">Marbella area guide</a></li>
+            <li><a href="/new-developments-costa-del-sol/">New developments guide</a></li>
+          </ul>
+        </div>
+
+        <!-- Area quick links -->
+        <div class="sidebar-card" data-animate="fade">
+          <h3>Browse by Area</h3>
+          <div class="sidebar-areas">
+            <a href="/costa-del-sol/marbella/" class="sidebar-area-pill">Marbella</a>
+            <a href="/costa-del-sol/estepona/" class="sidebar-area-pill">Estepona</a>
+            <a href="/costa-del-sol/fuengirola/" class="sidebar-area-pill">Fuengirola</a>
+            <a href="/costa-del-sol/nerja/" class="sidebar-area-pill">Nerja</a>
+            <a href="/costa-blanca/" class="sidebar-area-pill">Costa Blanca</a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- Full-width lead form -->
+  <LeadForm
+    heading={`Looking for property in ${category === 'Buyer Guide' ? 'Costa del Sol' : category}?`}
+    subheading="Send us a free enquiry — no fees, no obligation. We'll match you with the best options."
+  />
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+</BaseLayout>
+
+<style>
+/* ── Progress bar ── */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--green-mid));
+  z-index: 200;
+  transition: width 0.1s linear;
+}
+
+/* ── Hero image ── */
+.post-hero {
+  position: relative;
+  width: 100%;
+  max-height: 460px;
+  overflow: hidden;
+  background: var(--green-lt);
+}
+.post-hero img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  display: block;
+}
+.post-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(27,58,45,0.25) 100%);
+}
+
+/* ── Layout ── */
+.post-wrap {
+  background: var(--off-white);
+  padding: 48px 0 80px;
+}
+.post-container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ── Article ── */
+.post-article {
+  min-width: 0;
+}
+
+/* Breadcrumb */
+.post-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 28px;
+}
+.post-breadcrumb a { color: var(--text-muted); transition: color 0.15s; }
+.post-breadcrumb a:hover { color: var(--green); }
+.post-breadcrumb span[aria-hidden] { color: var(--border); }
+
+/* Header */
+.post-header { margin-bottom: 40px; }
+.post-cat {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  background: var(--green-lt);
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.post-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.post-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.post-meta__author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.post-meta__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.post-meta__author strong {
+  display: block;
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 600;
+}
+.post-meta__author time {
+  display: block;
+  font-size: 12px;
+  color: var(--text-light);
+}
+.post-meta__stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.post-meta__read {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.post-meta__updated {
+  font-size: 12px;
+  color: var(--text-light);
+  font-style: italic;
+}
+.post-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.post-tag {
+  background: var(--green-lt);
+  color: var(--green-mid);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.post-tag--link {
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+}
+.post-tag--link:hover { background: var(--green); color: var(--white); }
+
+/* ── Content prose ── */
+/* :global() required — markdown slot elements have no Astro scoped attribute */
+.post-content {
+  font-size: 16.5px;
+  line-height: 2;
+  color: #3D5248;
+  max-width: 68ch;
+}
+.post-content :global(h2) {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 56px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  scroll-margin-top: 80px;
+  line-height: 1.3;
+}
+.post-content :global(h3) {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 40px;
+  margin-bottom: 14px;
+  scroll-margin-top: 80px;
+  line-height: 1.35;
+}
+.post-content :global(h4) {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 32px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.post-content :global(p) {
+  margin-bottom: 26px;
+  line-height: 2;
+}
+.post-content :global(ul),
+.post-content :global(ol) {
+  margin: 0 0 26px 0;
+  padding-left: 24px;
+}
+.post-content :global(li) { margin-bottom: 10px; line-height: 2; }
+.post-content :global(a) {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s;
+}
+.post-content :global(a:hover) { color: var(--green2); }
+.post-content :global(strong) { color: var(--text); font-weight: 600; }
+.post-content :global(em) { font-style: italic; }
+
+/* Key facts / callout box */
+.post-content :global(blockquote) {
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin: 32px 0;
+  background: var(--green-lt);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--text);
+  font-size: 16px;
+}
+
+/* Tables */
+.post-content :global(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 14px;
+}
+.post-content :global(th) {
+  background: var(--green);
+  color: var(--white);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+}
+.post-content :global(td) {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  vertical-align: top;
+}
+.post-content :global(tr:nth-child(even) td) { background: var(--green-xlt); }
+
+/* Inline code */
+.post-content :global(code) {
+  background: var(--green-lt);
+  color: var(--green);
+  font-size: 0.85em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+/* Horizontal rule */
+.post-content :global(hr) {
+  border: none;
+  border-top: 2px solid var(--border);
+  margin: 48px 0;
+}
+
+/* ── Bottom CTA box ── */
+.post-cta-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--green);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 48px 0 32px;
+  flex-wrap: wrap;
+}
+.post-cta-box__icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.post-cta-box__text { flex: 1; min-width: 160px; }
+.post-cta-box__text strong { display: block; color: var(--white); font-size: 16px; margin-bottom: 4px; }
+.post-cta-box__text p { color: rgba(255,255,255,0.75); font-size: 13px; margin: 0; }
+.post-cta-box__btn { white-space: nowrap; flex-shrink: 0; }
+
+/* Tags footer */
+.post-footer-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.post-footer-tags__label { font-size: 12px; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* ── Sidebar ── */
+.post-sidebar {
+  position: sticky;
+  top: 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.sidebar-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+}
+.sidebar-card h3 {
+  font-size: 15px;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.sidebar-card--enquiry {
+  background: var(--green);
+  border-color: var(--green);
+}
+.sidebar-card--enquiry h3 { color: var(--white); margin-bottom: 8px; }
+.sidebar-card__eyebrow {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.sidebar-card--enquiry p { font-size: 13px; color: rgba(255,255,255,0.75); margin-bottom: 14px; }
+.sidebar-card__list { list-style: none; margin-bottom: 18px; display: flex; flex-direction: column; gap: 7px; }
+.sidebar-card__list li { display: flex; align-items: center; gap: 7px; font-size: 13px; color: rgba(255,255,255,0.85); }
+.sidebar-card__list svg { color: var(--accent); flex-shrink: 0; }
+.sidebar-card__btn { font-size: 14px; padding: 12px; }
+
+.sidebar-links { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.sidebar-links li { border-bottom: 1px solid var(--border-lt); }
+.sidebar-links li:last-child { border-bottom: none; }
+.sidebar-links a {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 9px 0;
+  transition: color 0.15s, padding-left 0.15s;
+  cursor: pointer;
+}
+.sidebar-links a:hover { color: var(--green); padding-left: 4px; }
+
+.sidebar-areas { display: flex; flex-wrap: wrap; gap: 6px; }
+.sidebar-area-pill {
+  display: inline-block;
+  padding: 5px 11px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  cursor: pointer;
+}
+.sidebar-area-pill:hover { border-color: var(--green); color: var(--green); background: var(--green-lt); }
+
+/* ── Back to top ── */
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s, transform 0.25s, background 0.15s;
+  box-shadow: 0 4px 16px rgba(27,58,45,0.3);
+  z-index: 50;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--green2); }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .post-container { grid-template-columns: 1fr 260px; gap: 32px; }
+}
+@media (max-width: 768px) {
+  .post-container { grid-template-columns: 1fr; }
+  .post-sidebar { position: static; }
+  .post-wrap { padding: 32px 0 48px; }
+  .post-content { max-width: 100%; font-size: 16px; }
+  .post-cta-box { flex-direction: column; align-items: flex-start; }
+  .post-hero img { height: 280px; }
+}
+@media (max-width: 480px) {
+  .post-meta { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar { transition: none; }
+  .back-to-top { transition: opacity 0.1s; }
+}
+</style>
+
+<script>
+// Reading progress bar
+const bar   = document.getElementById('progressBar');
+const post  = document.getElementById('postContent');
+const topBtn = document.getElementById('backToTop');
+
+function updateProgress() {
+  if (!bar || !post) return;
+  const rect    = post.getBoundingClientRect();
+  const total   = post.offsetHeight - window.innerHeight;
+  const scrolled = -rect.top;
+  const pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
+  bar.style.width = pct + '%';
+  bar.setAttribute('aria-valuenow', String(Math.round(pct)));
+  if (topBtn) topBtn.classList.toggle('visible', window.scrollY > 400);
+}
+
+window.addEventListener('scroll', updateProgress, { passive: true });
+topBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>

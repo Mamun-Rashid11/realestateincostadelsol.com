@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+---
+<BaseLayout
+  title="Villas for Sale Costa del Sol | Luxury Spanish Villas"
+  description="Browse villas for sale on the Costa del Sol. From classic Andalusian fincas to ultra-modern designs — find your perfect villa in Spain."
+  canonical="https://realestateincostadelsol.com/villas-for-sale-costa-del-sol/"
+  ogImage="/og/villas.jpg"
+>
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-animate style="--anim-delay:100ms">Property Type</span>
+      <h1 data-animate style="--anim-delay:220ms">Villas for Sale on the Costa del Sol</h1>
+      <p data-animate style="--anim-delay:340ms">Private pools, landscaped gardens, and panoramic sea views. Find your dream villa in Spain.</p>
+    </div>
+  </div>
+
+  <section class="type-content">
+    <div class="container type-content__inner">
+      <div class="facts-box" data-animate>
+        <h3>Villas for Sale — Price Guide 2026</h3>
+        <ul>
+          <li>Entry-level semi-detached villa: €250,000–€350,000</li>
+          <li>Detached 3-bed villa with pool: €400,000–€700,000</li>
+          <li>Luxury villa, sea views, premium location: €800,000–€3M+</li>
+          <li>Golden Mile / Marbella: €1.5M–€15M+</li>
+          <li>Best value areas for villas: Estepona, Mijas, Coín, Alhaurín</li>
+        </ul>
+      </div>
+
+      <h2 data-animate>Types of Villas on the Costa del Sol</h2>
+      <p><strong>Townhouses & semi-detached:</strong> The most affordable entry point. Usually on golf urbanisations with communal pools. From €220,000.</p>
+      <p><strong>Detached villas:</strong> Private plot, private pool, often 3–5 bedrooms. The classic Costa del Sol purchase. €400,000–€1.5M depending on location.</p>
+      <p><strong>Luxury villas:</strong> Architect-designed modern builds, sea views, infinity pools, home cinema rooms. The Golden Mile and La Zagaleta lead this segment.</p>
+      <p><strong>Fincas & country villas:</strong> Rural properties in the hills behind the coast. More space, more privacy, lower prices — but less convenient.</p>
+
+      <h2 data-animate>Best Areas for Villas</h2>
+      <ul>
+        <li><a href="/costa-del-sol/marbella/"><strong>Marbella & Golden Mile:</strong></a> Most prestigious. Prices reflect it.</li>
+        <li><strong>Estepona & New Golden Mile:</strong> Modern builds, golf access, better value than Marbella.</li>
+        <li><strong>Mijas Costa & Calahonda:</strong> Mid-coast, between Marbella and Fuengirola. Good mid-market value.</li>
+        <li><strong>Benalmádena:</strong> Family-friendly. Townhouses and semi-detached villas at accessible prices.</li>
+      </ul>
+
+      <div class="internal-links" data-animate>
+        <h3>Related Pages</h3>
+        <ul>
+          <li><a href="/costa-del-sol/">Browse All Costa del Sol Areas</a></li>
+          <li><a href="/new-developments-costa-del-sol/">New Developments</a></li>
+          <li><a href="/blog/what-300000-buys-marbella-2026/">What €300,000 Buys in Marbella</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadForm heading="Find Your Perfect Villa" subheading="Tell us what you're looking for and we'll match you with the best villa options across the Costa del Sol." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--green); padding: 80px 0; }
+.page-hero .eyebrow { color: var(--accent); display: block; margin-bottom: 12px; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom: 16px; }
+.page-hero p { color: rgba(255,255,255,0.8); font-size: 16px; max-width: 600px; line-height: 1.7; }
+.type-content { padding: 64px 0; background: var(--white); }
+.type-content__inner { max-width: 800px; }
+.type-content__inner h2 { margin-top: 40px; margin-bottom: 14px; }
+.type-content__inner h2:first-of-type { margin-top: 32px; }
+.type-content__inner p { color: var(--text-muted); margin-bottom: 14px; line-height: 1.8; }
+.type-content__inner ul { margin: 0 0 16px 20px; }
+.type-content__inner li { color: var(--text-muted); margin-bottom: 8px; line-height: 1.7; }
+.type-content__inner a { color: var(--green); }
+.facts-box { background: var(--green-lt); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+.facts-box h3 { font-size: 15px; margin-bottom: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+.facts-box ul { margin-left: 20px; }
+.facts-box li { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+.internal-links { background: var(--off-white); border-radius: 8px; padding: 20px 24px; margin-top: 40px; }
+.internal-links h3 { font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; margin-bottom: 10px; }
+.internal-links ul { margin-left: 0; list-style: none; }
+.internal-links li { margin-bottom: 6px; }
+.internal-links a { color: var(--green); font-size: 14px; text-decoration: underline; }
+</style>

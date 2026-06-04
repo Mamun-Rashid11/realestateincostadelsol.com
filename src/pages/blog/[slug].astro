@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+<BlogLayout
+  title={`${post.data.title} | Real Estate in Costa del Sol`}
+  description={post.data.description}
+  canonical={`https://realestateincostadelsol.com/blog/${post.slug}/`}
+  pubDate={post.data.pubDate}
+  updatedDate={post.data.updatedDate}
+  author={post.data.author}
+  image={post.data.image}
+  imageAlt={post.data.imageAlt}
+  category={post.data.category}
+  tags={post.data.tags}
+>
+  <Content />
+</BlogLayout>

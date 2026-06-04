@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+---
+<BaseLayout
+  title="Homes for Sale Costa del Sol | Spanish Property for Sale"
+  description="Find homes for sale on the Costa del Sol. Villas, townhouses, apartments and country homes. Expert advice for UK and US buyers."
+  canonical="https://realestateincostadelsol.com/homes-for-sale-costa-del-sol/"
+  ogImage="/og/homes.jpg"
+>
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-animate style="--anim-delay:100ms">Property Search</span>
+      <h1 data-animate style="--anim-delay:220ms">Homes for Sale on the Costa del Sol</h1>
+      <p data-animate style="--anim-delay:340ms">Browse all property types across Spain's most popular coastline — from beach apartments to mountain fincas.</p>
+    </div>
+  </div>
+
+  <section class="type-content">
+    <div class="container type-content__inner">
+      <div class="facts-box" data-animate>
+        <h3>Costa del Sol Homes — Price Overview 2026</h3>
+        <ul>
+          <li>Entry-level apartment: from €65,000 (Costa Blanca) / €95,000 (Costa del Sol)</li>
+          <li>2-bed family home: €150,000–€300,000 in most areas</li>
+          <li>3-bed villa with pool: €350,000–€700,000 depending on location</li>
+          <li>Luxury home: €800,000–€15M+ (Marbella, Sotogrande)</li>
+          <li>Total buying costs: add 10–13% on top of purchase price (taxes, fees)</li>
+        </ul>
+      </div>
+
+      <h2 data-animate>All Property Types</h2>
+      <ul>
+        <li><a href="/villas-for-sale-costa-del-sol/"><strong>Villas:</strong></a> Private houses with gardens and pools. The classic Costa del Sol dream home.</li>
+        <li><a href="/apartments-costa-del-sol/"><strong>Apartments:</strong></a> Easiest to manage, best for rental investment, most popular with first-time buyers.</li>
+        <li><a href="/new-developments-costa-del-sol/"><strong>New Developments:</strong></a> Off-plan and new-build. Modern specs, developer payment plans.</li>
+        <li><strong>Townhouses:</strong> Mid-point between villa and apartment. Private garden, communal pool. Great family option.</li>
+        <li><strong>Country homes / Fincas:</strong> Rural properties in the hills. Space, privacy, and great prices — but less convenient.</li>
+      </ul>
+
+      <h2 data-animate>Buying Process for UK Citizens</h2>
+      <p>Since Brexit, UK citizens are no longer EU nationals when buying in Spain. This affects your legal status but not your right to purchase — you can still buy freely in Spain. The process takes 6–12 weeks from offer to completion.</p>
+      <p>Key steps: obtain an NIE (foreigner ID number), open a Spanish bank account, appoint an independent solicitor, sign a reservation agreement, pay deposit, and complete at a Spanish notary.</p>
+
+      <div class="internal-links" data-animate>
+        <h3>Related Pages</h3>
+        <ul>
+          <li><a href="/costa-del-sol/">Browse Costa del Sol Areas</a></li>
+          <li><a href="/blog/buying-property-spain-uk-citizens-2026/">Complete Guide: Buying in Spain as a UK Citizen</a></li>
+          <li><a href="/contact/">Free Property Enquiry</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadForm heading="Find Your Home in Spain" subheading="Tell us what you're looking for — we'll do the searching. Free enquiry, no fees, no obligation." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--green); padding: 80px 0; }
+.page-hero .eyebrow { color: var(--accent); display: block; margin-bottom: 12px; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom: 16px; }
+.page-hero p { color: rgba(255,255,255,0.8); font-size: 16px; max-width: 600px; line-height: 1.7; }
+.type-content { padding: 64px 0; background: var(--white); }
+.type-content__inner { max-width: 800px; }
+.type-content__inner h2 { margin-top: 40px; margin-bottom: 14px; }
+.type-content__inner h2:first-of-type { margin-top: 32px; }
+.type-content__inner p { color: var(--text-muted); margin-bottom: 14px; line-height: 1.8; }
+.type-content__inner ul { margin: 0 0 16px 20px; }
+.type-content__inner li { color: var(--text-muted); margin-bottom: 8px; line-height: 1.7; }
+.type-content__inner a { color: var(--green); }
+.facts-box { background: var(--green-lt); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+.facts-box h3 { font-size: 15px; margin-bottom: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+.facts-box ul { margin-left: 20px; }
+.facts-box li { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+.internal-links { background: var(--off-white); border-radius: 8px; padding: 20px 24px; margin-top: 40px; }
+.internal-links h3 { font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; margin-bottom: 10px; }
+.internal-links ul { margin-left: 0; list-style: none; }
+.internal-links li { margin-bottom: 6px; }
+.internal-links a { color: var(--green); font-size: 14px; text-decoration: underline; }
+</style>

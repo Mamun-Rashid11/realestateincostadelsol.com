@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+---
+<BaseLayout
+  title="About Us | Real Estate in Costa del Sol"
+  description="About realestateincostadelsol.com — helping UK and US buyers find property in Spain. Partner agency: Casa Espanha."
+  canonical="https://realestateincostadelsol.com/about/"
+>
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-animate style="--anim-delay:100ms">About Us</span>
+      <h1 data-animate style="--anim-delay:220ms">Helping You Buy Property in Spain</h1>
+    </div>
+  </div>
+
+  <section class="about-content">
+    <div class="container about-content__inner">
+      <div class="about-content__text">
+        <h2 data-animate>What We Do</h2>
+        <p>realestateincostadelsol.com is a property information and lead-generation service for UK and US buyers looking to purchase in coastal Spain. We focus specifically on the Costa del Sol — Spain's most popular destination for foreign buyers.</p>
+        <p>We don't list properties directly. Instead, we provide honest, detailed guides to help you understand the market — then connect you with our partner agency <a href="https://casaespanha.com" target="_blank" rel="noopener">Casa Espanha</a>, who have access to thousands of properties across the region.</p>
+
+        <h2 data-animate>Why Use Us</h2>
+        <ul>
+          <li>Independent guides written for UK buyers, including post-Brexit advice</li>
+          <li>No buyer fees — ever. We're paid by our partner agency, not you</li>
+          <li>Access to 2,400+ properties via our Resales Online network connection</li>
+          <li>Honest market data — we tell you where prices are rising, falling, and why</li>
+        </ul>
+
+        <h2 data-animate>Our Partner Agency</h2>
+        <p>All property enquiries are referred to <a href="https://casaespanha.com" target="_blank" rel="noopener">Casa Espanha</a>, a licensed Spanish real estate agency with offices on the Costa del Sol. They handle viewings, negotiations, legal coordination, and completion.</p>
+      </div>
+    </div>
+  </section>
+
+  <LeadForm />
+</BaseLayout>
+
+<style>
+.page-hero {
+  background: var(--green);
+  padding: 64px 0;
+}
+.page-hero .eyebrow { color: var(--accent); display: block; margin-bottom: 12px; }
+.page-hero h1 { color: var(--white); font-size: clamp(1.8rem, 4vw, 2.8rem); }
+.about-content { padding: 64px 0; }
+.about-content__inner { max-width: 760px; }
+.about-content__text h2 { margin-top: 40px; margin-bottom: 16px; font-size: 1.5rem; }
+.about-content__text h2:first-child { margin-top: 0; }
+.about-content__text p { color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; }
+.about-content__text ul { margin: 0 0 16px 20px; color: var(--text-muted); }
+.about-content__text li { margin-bottom: 8px; line-height: 1.7; }
+.about-content__text a { color: var(--green); text-decoration: underline; }
+</style>

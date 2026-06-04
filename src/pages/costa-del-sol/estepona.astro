@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+---
+<BaseLayout
+  title="Estepona Property for Sale | Real Estate in Costa del Sol"
+  description="Buy property in Estepona, Costa del Sol. Affordable villas and apartments in one of the most charming towns on the Spanish coast."
+  canonical="https://realestateincostadelsol.com/costa-del-sol/estepona/"
+  ogImage="/og/estepona.jpg"
+>
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-animate style="--anim-delay:100ms">Costa del Sol</span>
+      <h1 data-animate style="--anim-delay:220ms">Estepona Property for Sale</h1>
+      <p data-animate style="--anim-delay:340ms">A charming, authentic Andalusian town with beautiful beaches — and more affordable than its famous neighbour Marbella.</p>
+    </div>
+  </div>
+
+  <section class="area-content">
+    <div class="container area-content__inner">
+      <div class="facts-box" data-animate>
+        <h3>Estepona Property Market — Quick Facts 2026</h3>
+        <ul>
+          <li>Average price: €2,100/m² (range: €1,400–€5,500/m²)</li>
+          <li>Popular zones: Estepona Old Town, New Golden Mile, El Paraíso</li>
+          <li>Typical budget: €120k–€250k (apartment), €300k–€700k (villa)</li>
+          <li>Drive time to Málaga Airport: ~60 minutes</li>
+          <li>Drive time to Gibraltar Airport: ~25 minutes</li>
+        </ul>
+      </div>
+
+      <h2 data-animate>Why Buy in Estepona?</h2>
+      <p>Estepona has transformed in recent years from a quiet fishing town into one of the most desirable locations on the Costa del Sol. Its beautifully restored old town — all whitewashed walls and flower-filled streets — sits alongside 21km of sandy beaches and a thriving marina.</p>
+      <p>Prices remain significantly lower than Marbella (10–15 miles to the east), making Estepona popular with buyers who want quality of life without the Marbella price tag.</p>
+
+      <h2 data-animate>Key Areas</h2>
+      <ul>
+        <li><strong>Estepona Old Town:</strong> Atmospheric apartments in the historic centre, ideal for short-term rentals.</li>
+        <li><strong>New Golden Mile:</strong> The stretch between Estepona and Marbella — new developments, golf resorts, beach clubs.</li>
+        <li><strong>El Paraíso / Cancelada:</strong> Golf urbanisations with villas and townhouses at mid-range prices.</li>
+        <li><strong>Estepona Port:</strong> Modern apartments and penthouses with marina views.</li>
+      </ul>
+
+      <div class="internal-links" data-animate>
+        <h3>Related Pages</h3>
+        <ul>
+          <li><a href="/costa-del-sol/">← All Costa del Sol Areas</a></li>
+          <li><a href="/blog/estepona-vs-fuengirola-families/">Estepona vs Fuengirola — Which is Better for Families?</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadForm area="Estepona" heading="Looking for Property in Estepona?" />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--green); padding: 80px 0; }
+.page-hero .eyebrow { color: var(--accent); display: block; margin-bottom: 12px; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom: 16px; }
+.page-hero p { color: rgba(255,255,255,0.8); font-size: 16px; max-width: 600px; line-height: 1.7; }
+.area-content { padding: 64px 0; background: var(--white); }
+.area-content__inner { max-width: 800px; }
+.area-content__inner h2 { margin-top: 40px; margin-bottom: 14px; }
+.area-content__inner h2:first-of-type { margin-top: 32px; }
+.area-content__inner p { color: var(--text-muted); margin-bottom: 14px; line-height: 1.8; }
+.area-content__inner ul { margin: 0 0 16px 20px; }
+.area-content__inner li { color: var(--text-muted); margin-bottom: 8px; line-height: 1.7; }
+.facts-box { background: var(--green-lt); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+.facts-box h3 { font-size: 15px; margin-bottom: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+.facts-box ul { margin-left: 20px; }
+.facts-box li { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+.internal-links { background: var(--off-white); border-radius: 8px; padding: 20px 24px; margin-top: 40px; }
+.internal-links h3 { font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; margin-bottom: 10px; }
+.internal-links ul { margin-left: 0; list-style: none; }
+.internal-links li { margin-bottom: 6px; }
+.internal-links a { color: var(--green); font-size: 14px; text-decoration: underline; }
+</style>

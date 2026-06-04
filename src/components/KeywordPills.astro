@@ -1,0 +1,58 @@
+---
+const pills = [
+  { label: 'Marbella', href: '/costa-del-sol/marbella/' },
+  { label: 'Estepona', href: '/costa-del-sol/estepona/' },
+  { label: 'Fuengirola', href: '/costa-del-sol/fuengirola/' },
+  { label: 'Nerja', href: '/costa-del-sol/nerja/' },
+  { label: 'Costa Blanca', href: '/costa-blanca/' },
+  { label: 'Villas', href: '/villas-for-sale-costa-del-sol/' },
+  { label: 'Apartments', href: '/apartments-costa-del-sol/' },
+  { label: 'New Developments', href: '/new-developments-costa-del-sol/' },
+  { label: 'Homes for Sale', href: '/homes-for-sale-costa-del-sol/' },
+  { label: 'Costa Cálida', href: '/costa-calida/' },
+  { label: 'Costa de la Luz', href: '/costa-de-la-luz/' },
+];
+---
+<div class="pills-wrap">
+  <div class="pills" data-stagger data-stagger-base="0" data-stagger-step="40">
+    {pills.map(p => (
+      <a href={p.href} class="pill" data-animate>{p.label}</a>
+    ))}
+  </div>
+</div>
+
+<style>
+.pills-wrap {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.pills-wrap::-webkit-scrollbar { display: none; }
+.pills {
+  display: flex;
+  gap: 8px;
+  padding: 14px 80px;
+  white-space: nowrap;
+  justify-content: center;
+}
+.pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--off-white);
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.pill:hover {
+  border-color: var(--green);
+  color: var(--green);
+  background: var(--green-lt);
+}
+@media (max-width: 768px) {
+  .pills { padding: 12px 20px; }
+}
+</style>

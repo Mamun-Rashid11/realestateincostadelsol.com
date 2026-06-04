@@ -1,0 +1,54 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import SEOHead from '../components/SEOHead.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage?: string;
+}
+const { title, description, canonical, ogImage } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <SEOHead {title} {description} {canonical} {ogImage} />
+  </head>
+  <body>
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+
+  <script>
+    // Intersection Observer — fires fadeUpBlur once element enters viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target); // once only
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '-40px 0px' }
+    );
+
+    // Assign stagger delays to children inside [data-stagger] containers
+    document.querySelectorAll('[data-stagger]').forEach((container) => {
+      const base = Number(container.getAttribute('data-stagger-base') ?? 0);
+      const step = Number(container.getAttribute('data-stagger-step') ?? 100);
+      container.querySelectorAll('[data-animate]').forEach((el, i) => {
+        (el as HTMLElement).style.setProperty('--anim-delay', `${base + i * step}ms`);
+      });
+    });
+
+    // Observe all animatable elements
+    document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+  </script>
+</html>

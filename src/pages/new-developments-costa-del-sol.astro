@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+---
+<BaseLayout
+  title="New Developments Costa del Sol | Off-Plan Property Spain"
+  description="Discover new developments and off-plan property for sale on the Costa del Sol. Modern builds with developer payment plans and energy-efficient specs."
+  canonical="https://realestateincostadelsol.com/new-developments-costa-del-sol/"
+  ogImage="/og/new-developments.jpg"
+>
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-animate style="--anim-delay:100ms">Property Type</span>
+      <h1 data-animate style="--anim-delay:220ms">New Developments on the Costa del Sol</h1>
+      <p data-animate style="--anim-delay:340ms">Off-plan and newly built properties with modern specifications, energy efficiency, and developer payment plans.</p>
+    </div>
+  </div>
+
+  <section class="type-content">
+    <div class="container type-content__inner">
+      <div class="facts-box" data-animate>
+        <h3>New Developments — Key Facts 2026</h3>
+        <ul>
+          <li>Typical off-plan deposit: 10–30% on reservation, balance on completion</li>
+          <li>Build time: 18–36 months for most Costa del Sol projects</li>
+          <li>Price premium over resale: 5–15% for comparable spec</li>
+          <li>Active new-build zones: Estepona East, Marbella East, Benalmádena, Mijas</li>
+          <li>EU energy rating: A or B required for all new builds since 2021</li>
+        </ul>
+      </div>
+
+      <h2 data-animate>Why Buy Off-Plan?</h2>
+      <p>Buying a new development or off-plan property on the Costa del Sol offers several advantages over resale: modern energy-efficient construction, full warranty (10-year structural guarantee is legally required in Spain), and the ability to customise finishes.</p>
+      <p>Buyers who purchase early in the build cycle often benefit from below-market pricing and capital growth by the time keys are handed over.</p>
+
+      <h2 data-animate>Risks to Consider</h2>
+      <ul>
+        <li><strong>Build delays:</strong> Common in Spain — factor in 3–6 months beyond the promised completion date.</li>
+        <li><strong>Developer insolvency:</strong> Ensure your stage payments are protected by a bank guarantee (required by Spanish law).</li>
+        <li><strong>Currency risk:</strong> For UK buyers, exchange rate movements between reservation and completion can significantly affect costs.</li>
+        <li><strong>Reservation fee:</strong> Typically €3,000–€10,000 to secure the unit. Non-refundable if you pull out.</li>
+      </ul>
+
+      <h2 data-animate>Currently Active Projects</h2>
+      <p>We work with Casa Espanha to provide up-to-date information on new development launches across the Costa del Sol. Use the enquiry form below to request our current new developments list.</p>
+
+      <div class="internal-links" data-animate>
+        <h3>Related Pages</h3>
+        <ul>
+          <li><a href="/costa-del-sol/">Browse All Costa del Sol Areas</a></li>
+          <li><a href="/blog/new-developments-costa-del-sol-guide/">New Developments Buyer Guide</a></li>
+          <li><a href="/buying-property-spain-uk-citizens-2026/">Buying in Spain as a UK Citizen</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadForm heading="Request New Developments List" subheading="We'll send you details of the latest launches across the Costa del Sol — free, no obligation." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--green); padding: 80px 0; }
+.page-hero .eyebrow { color: var(--accent); display: block; margin-bottom: 12px; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom: 16px; }
+.page-hero p { color: rgba(255,255,255,0.8); font-size: 16px; max-width: 600px; line-height: 1.7; }
+.type-content { padding: 64px 0; background: var(--white); }
+.type-content__inner { max-width: 800px; }
+.type-content__inner h2 { margin-top: 40px; margin-bottom: 14px; }
+.type-content__inner h2:first-of-type { margin-top: 32px; }
+.type-content__inner p { color: var(--text-muted); margin-bottom: 14px; line-height: 1.8; }
+.type-content__inner ul { margin: 0 0 16px 20px; }
+.type-content__inner li { color: var(--text-muted); margin-bottom: 8px; line-height: 1.7; }
+.type-content__inner a { color: var(--green); }
+.facts-box { background: var(--green-lt); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+.facts-box h3 { font-size: 15px; margin-bottom: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+.facts-box ul { margin-left: 20px; }
+.facts-box li { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+.internal-links { background: var(--off-white); border-radius: 8px; padding: 20px 24px; margin-top: 40px; }
+.internal-links h3 { font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; margin-bottom: 10px; }
+.internal-links ul { margin-left: 0; list-style: none; }
+.internal-links li { margin-bottom: 6px; }
+.internal-links a { color: var(--green); font-size: 14px; text-decoration: underline; }
+</style>

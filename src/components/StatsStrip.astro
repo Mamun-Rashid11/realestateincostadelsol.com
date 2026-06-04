@@ -1,0 +1,53 @@
+---
+const stats = [
+  { value: '2,400+', label: 'Properties Listed' },
+  { value: '14', label: 'Areas Covered' },
+  { value: '£0', label: 'Buyer Fees' },
+  { value: '10+ yrs', label: 'Market Experience' },
+];
+---
+<div class="stats-strip">
+  <div class="container stats-strip__inner" data-stagger data-stagger-base="0" data-stagger-step="80">
+    {stats.map(s => (
+      <div class="stats-strip__item" data-animate="fade-up">
+        <strong>{s.value}</strong>
+        <span>{s.label}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+.stats-strip {
+  background: var(--green2);
+  padding: 20px 0;
+}
+.stats-strip__inner {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.stats-strip__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--white);
+}
+.stats-strip__item strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+.stats-strip__item span {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+</style>

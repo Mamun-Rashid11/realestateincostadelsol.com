@@ -1,0 +1,199 @@
+---
+interface Props {
+  heading?: string;
+  subheading?: string;
+  area?: string;
+}
+const {
+  heading = 'Find Your Perfect Property — Free',
+  subheading = 'Tell us what you\'re looking for and we\'ll match you with the best options. No fees, no obligation.',
+  area = '',
+} = Astro.props;
+---
+<section class="lead-form-section">
+  <div class="container">
+    <div class="lead-form-wrap">
+      <div class="lead-form__intro" data-animate>
+        <span class="eyebrow">Free Property Enquiry</span>
+        <h2>{heading}</h2>
+        <p>{subheading}</p>
+        <ul class="lead-form__benefits">
+          <li>✓ No buyer fees — ever</li>
+          <li>✓ UK-based support team</li>
+          <li>✓ Access to 2,400+ properties</li>
+          <li>✓ Post-Brexit buying guidance</li>
+        </ul>
+      </div>
+
+      <form
+        class="lead-form"
+        name="property-enquiry"
+        method="POST"
+        action="/thank-you/"
+        data-netlify="true"
+        data-animate="fade-up"
+        style="--anim-delay:120ms"
+      >
+        <input type="hidden" name="form-name" value="property-enquiry" />
+
+        <div class="lead-form__row">
+          <div class="lead-form__field">
+            <label for="lf-name">Full Name *</label>
+            <input type="text" id="lf-name" name="name" required placeholder="Your name" />
+          </div>
+          <div class="lead-form__field">
+            <label for="lf-email">Email Address *</label>
+            <input type="email" id="lf-email" name="email" required placeholder="your@email.com" />
+          </div>
+        </div>
+
+        <div class="lead-form__row">
+          <div class="lead-form__field">
+            <label for="lf-budget">Budget</label>
+            <select id="lf-budget" name="budget">
+              <option value="">Select budget</option>
+              <option>Up to €150,000</option>
+              <option>€150,000 – €300,000</option>
+              <option>€300,000 – €500,000</option>
+              <option>€500,000+</option>
+            </select>
+          </div>
+          <div class="lead-form__field">
+            <label for="lf-area">Preferred Area</label>
+            <select id="lf-area" name="area">
+              <option value={area}>{area || 'Select area'}</option>
+              <option>Marbella</option>
+              <option>Estepona</option>
+              <option>Fuengirola</option>
+              <option>Nerja</option>
+              <option>Costa Blanca</option>
+              <option>Open to suggestions</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="lead-form__row">
+          <div class="lead-form__field">
+            <label for="lf-type">Property Type</label>
+            <select id="lf-type" name="type">
+              <option value="">Select type</option>
+              <option>Villa</option>
+              <option>Apartment</option>
+              <option>New development</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+          <div class="lead-form__field">
+            <label for="lf-beds">Bedrooms</label>
+            <select id="lf-beds" name="bedrooms">
+              <option value="">Any</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="lead-form__field">
+          <label for="lf-message">Anything else? (optional)</label>
+          <textarea id="lf-message" name="message" rows="3" placeholder="Tell us about your timeline, requirements, or any questions..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary lead-form__submit">Send Free Enquiry</button>
+        <p class="lead-form__note">We typically respond within 2 business hours. Your details are never shared with third parties.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+.lead-form-section {
+  padding: 80px 0;
+  background: var(--green);
+}
+.lead-form-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 64px;
+  align-items: start;
+}
+.lead-form__intro .eyebrow { color: var(--accent); margin-bottom: 16px; display: block; }
+.lead-form__intro h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.lead-form__intro p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.lead-form__benefits {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.lead-form__benefits li {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+}
+.lead-form {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.lead-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.lead-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.lead-form__field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.lead-form__field input,
+.lead-form__field select,
+.lead-form__field textarea {
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--off-white);
+  transition: border-color 0.15s;
+  width: 100%;
+}
+.lead-form__field input:focus,
+.lead-form__field select:focus,
+.lead-form__field textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  background: var(--white);
+}
+.lead-form__submit { width: 100%; font-size: 15px; padding: 15px; }
+.lead-form__note {
+  font-size: 12px;
+  color: var(--text-light);
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .lead-form-wrap { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 560px) {
+  .lead-form__row { grid-template-columns: 1fr; }
+  .lead-form { padding: 24px; }
+}
+</style>

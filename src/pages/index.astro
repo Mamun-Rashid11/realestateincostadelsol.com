@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import StatsStrip from '../components/StatsStrip.astro';
+import KeywordPills from '../components/KeywordPills.astro';
+import AreasGrid from '../components/AreasGrid.astro';
+import PropertyTypesGrid from '../components/PropertyTypesGrid.astro';
+import BlogGrid from '../components/BlogGrid.astro';
+import LeadForm from '../components/LeadForm.astro';
+---
+<BaseLayout
+  title="Real Estate in Costa del Sol | Buy Property in Spain"
+  description="Find villas, apartments and new developments for sale across Costa del Sol. Expert guides for UK and US buyers. Free property enquiry service."
+  canonical="https://realestateincostadelsol.com/"
+  ogImage="/og/homepage.jpg"
+>
+  <HeroSection />
+  <StatsStrip />
+  <KeywordPills />
+  <AreasGrid />
+  <PropertyTypesGrid />
+  <BlogGrid />
+  <LeadForm />
+</BaseLayout>

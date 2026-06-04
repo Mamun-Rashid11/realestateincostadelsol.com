@@ -1,0 +1,132 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <div class="footer__logo">
+        <span class="footer__logo-icon">R</span>
+        <div>
+          <strong>Real Estate Costa del Sol</strong>
+          <p>Your guide to Spanish coastal property</p>
+        </div>
+      </div>
+      <p class="footer__tagline">Helping UK &amp; US buyers find their perfect property on Spain's most beautiful coastline.</p>
+    </div>
+
+    <div class="footer__col">
+      <h4>Areas</h4>
+      <ul>
+        <li><a href="/costa-del-sol/">Costa del Sol</a></li>
+        <li><a href="/costa-del-sol/marbella/">Marbella</a></li>
+        <li><a href="/costa-del-sol/estepona/">Estepona</a></li>
+        <li><a href="/costa-del-sol/fuengirola/">Fuengirola</a></li>
+        <li><a href="/costa-del-sol/nerja/">Nerja</a></li>
+        <li><a href="/costa-blanca/">Costa Blanca</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Property Types</h4>
+      <ul>
+        <li><a href="/villas-for-sale-costa-del-sol/">Villas</a></li>
+        <li><a href="/apartments-costa-del-sol/">Apartments</a></li>
+        <li><a href="/new-developments-costa-del-sol/">New Developments</a></li>
+        <li><a href="/homes-for-sale-costa-del-sol/">Homes</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="/blog/">Buyer Guides</a></li>
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p>&copy; {year} realestateincostadelsol.com — All rights reserved.</p>
+      <p>Partner agency: <a href="https://casaespanha.com" target="_blank" rel="noopener">Casa Espanha</a></p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+  background: var(--dark-footer);
+  color: rgba(255,255,255,0.7);
+  padding-top: 64px;
+}
+.footer__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.footer__logo-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--accent);
+  color: var(--green);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 22px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.footer__logo strong {
+  display: block;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+}
+.footer__logo p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+}
+.footer__tagline { font-size: 13px; line-height: 1.6; }
+.footer__col h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.footer__col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer__col ul a { font-size: 13px; color: rgba(255,255,255,0.65); transition: color 0.15s; }
+.footer__col ul a:hover { color: var(--white); }
+.footer__bottom { padding: 20px 0; }
+.footer__bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+.footer__bottom a { color: rgba(255,255,255,0.6); }
+.footer__bottom a:hover { color: var(--white); }
+@media (max-width: 768px) {
+  .footer__inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer__bottom-inner { flex-direction: column; gap: 8px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .footer__inner { grid-template-columns: 1fr; }
+}
+</style>

@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Enquiry Sent | Real Estate in Costa del Sol"
+  description="Thank you for your property enquiry. We'll be in touch within 2 business hours."
+  canonical="https://realestateincostadelsol.com/thank-you/"
+>
+  <div class="ty-hero">
+    <div class="container">
+      <div class="ty-icon" aria-hidden="true">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+      </div>
+      <span class="eyebrow" data-animate style="--anim-delay:100ms">Enquiry Received</span>
+      <h1 data-animate style="--anim-delay:220ms">Thank You — We'll Be in Touch</h1>
+      <p data-animate style="--anim-delay:340ms">Your enquiry has been sent to our team. We typically respond within 2 business hours during UK working hours (Mon–Fri, 9am–6pm).</p>
+      <a href="/" class="btn btn-accent" data-animate style="--anim-delay:460ms">Back to Homepage</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+.ty-hero {
+  background: var(--green);
+  padding: 100px 0;
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+.ty-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(200,169,110,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: var(--accent);
+}
+.ty-hero .eyebrow { color: var(--accent); display: block; margin-bottom: 12px; }
+.ty-hero h1 { color: var(--white); font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 20px; }
+.ty-hero p { color: rgba(255,255,255,0.8); font-size: 16px; max-width: 500px; margin: 0 auto 32px; line-height: 1.7; }
+</style>

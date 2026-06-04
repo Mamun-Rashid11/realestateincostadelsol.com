@@ -1,0 +1,97 @@
+---
+import AreaCard from './AreaCard.astro';
+
+const areas = [
+  {
+    name: 'Marbella',
+    href: '/costa-del-sol/marbella/',
+    description: 'The jewel of the Costa del Sol. Luxury villas, Puerto Banús, and year-round sunshine.',
+    priceFrom: '€180,000',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=75',
+    featured: true,
+    properties: 480,
+  },
+  {
+    name: 'Estepona',
+    href: '/costa-del-sol/estepona/',
+    description: 'Charming old town, beautiful beaches, and more affordable than Marbella.',
+    priceFrom: '€120,000',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=75',
+    properties: 310,
+  },
+  {
+    name: 'Fuengirola',
+    href: '/costa-del-sol/fuengirola/',
+    description: 'Family-friendly resort with great amenities and strong rental potential.',
+    priceFrom: '€95,000',
+    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=75',
+    properties: 290,
+  },
+  {
+    name: 'Nerja',
+    href: '/costa-del-sol/nerja/',
+    description: 'Dramatic cliffs, crystalline coves, and a relaxed expat community.',
+    priceFrom: '€110,000',
+    image: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=800&q=75',
+    properties: 180,
+  },
+  {
+    name: 'Costa Blanca',
+    href: '/costa-blanca/',
+    description: 'Alicante and Torrevieja — warm winters, low prices, growing demand.',
+    priceFrom: '€65,000',
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=75',
+    properties: 620,
+  },
+  {
+    name: 'Costa de la Luz',
+    href: '/costa-de-la-luz/',
+    description: 'Unspoilt Atlantic coastline. Wild beaches, whitewashed villages, value for money.',
+    priceFrom: '€80,000',
+    image: 'https://images.unsplash.com/photo-1499678329028-101435549a4e?w=800&q=75',
+    properties: 140,
+  },
+];
+---
+<section class="areas-section">
+  <div class="container">
+    <div class="areas-section__header">
+      <span class="eyebrow" data-animate>Browse by Location</span>
+      <h2 class="section-h2" data-animate style="--anim-delay:80ms">Popular Areas to Buy Property</h2>
+      <p data-animate style="--anim-delay:160ms">From the glamour of Marbella to the laid-back charm of Nerja — every buyer finds their corner of Spain here.</p>
+    </div>
+    <div class="areas-grid" data-stagger data-stagger-base="100" data-stagger-step="80">
+      {areas.map(area => <AreaCard {...area} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+.areas-section {
+  padding: 80px 0;
+  background: var(--off-white);
+}
+.areas-section__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.areas-section__header .eyebrow { margin-bottom: 12px; display: block; }
+.areas-section__header h2 { margin-bottom: 16px; }
+.areas-section__header p {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto;
+}
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 900px) {
+  .areas-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .areas-grid { grid-template-columns: 1fr; }
+}
+</style>

@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+---
+<BaseLayout
+  title="Marbella Real Estate | Property for Sale in Marbella"
+  description="Find villas, apartments and luxury property for sale in Marbella, Costa del Sol. Expert buyer guides and free enquiry service for UK and US buyers."
+  canonical="https://realestateincostadelsol.com/costa-del-sol/marbella/"
+  ogImage="/og/marbella.jpg"
+>
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-animate style="--anim-delay:100ms">Costa del Sol</span>
+      <h1 data-animate style="--anim-delay:220ms">Marbella Real Estate</h1>
+      <p data-animate style="--anim-delay:340ms">The most prestigious address on the Costa del Sol. From Golden Mile villas to Puerto Banús apartments — Marbella has it all.</p>
+    </div>
+  </div>
+
+  <section class="area-content">
+    <div class="container area-content__inner">
+      <div class="facts-box" data-animate>
+        <h3>Marbella Property Market — Quick Facts 2026</h3>
+        <ul>
+          <li>Average price: €3,800/m² (range: €2,200–€15,000+/m²)</li>
+          <li>Most sought-after zones: Golden Mile, Nueva Andalucía, Puerto Banús, Marbella Old Town</li>
+          <li>Typical budget: €200k (apartment), €500k–€1M+ (villa)</li>
+          <li>Rental yields: 5–7% gross in tourist-approved properties</li>
+          <li>Drive time to Málaga Airport: ~45 minutes</li>
+        </ul>
+      </div>
+
+      <h2 data-animate>Why Buy in Marbella?</h2>
+      <p>Marbella consistently tops the list of most desirable locations for foreign buyers on the Costa del Sol. It combines natural beauty (the Sierra Blanca mountain backdrop, 27km of beaches) with world-class infrastructure: five-star hotels, Michelin-starred restaurants, 20+ golf courses, and a cosmopolitan lifestyle.</p>
+      <p>For UK buyers, Marbella offers strong long-term capital growth and rental income potential — particularly properties that qualify for tourist rental licences.</p>
+
+      <h2 data-animate>Marbella Property Types & Prices</h2>
+      <p><strong>Apartments:</strong> From €180,000 for a 1-bed in the town centre, up to €600,000+ for a beachfront penthouse in Puerto Banús.</p>
+      <p><strong>Villas:</strong> Semi-detached villas from €400,000 in Nueva Andalucía. Luxury detached from €1.5M on the Golden Mile.</p>
+      <p><strong>New developments:</strong> Several projects under construction near Marbella East and Elviria. Off-plan from €280,000.</p>
+
+      <h2 data-animate>Areas Within Marbella</h2>
+      <ul>
+        <li><strong>Golden Mile:</strong> The most exclusive strip, connecting central Marbella to Puerto Banús. Home to 5-star hotels and landmark villas.</li>
+        <li><strong>Puerto Banús:</strong> Marina lifestyle, designer boutiques, and some of Spain's most sought-after apartments.</li>
+        <li><strong>Nueva Andalucía:</strong> Known as "Golf Valley" — more affordable than the Golden Mile with great links courses.</li>
+        <li><strong>Marbella Old Town:</strong> Charming Andalusian architecture, pedestrian squares, ideal for city apartments.</li>
+        <li><strong>Marbella East / Elviria:</strong> Quieter, more family-friendly, with newer developments and beach clubs.</li>
+      </ul>
+
+      <div class="internal-links" data-animate>
+        <h3>Related Pages</h3>
+        <ul>
+          <li><a href="/costa-del-sol/">← All Costa del Sol Areas</a></li>
+          <li><a href="/villas-for-sale-costa-del-sol/">Villas for Sale on Costa del Sol</a></li>
+          <li><a href="/blog/what-300000-buys-marbella-2026/">What €300,000 Buys in Marbella (2026)</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadForm area="Marbella" heading="Looking for Property in Marbella?" />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--green); padding: 80px 0; }
+.page-hero .eyebrow { color: var(--accent); display: block; margin-bottom: 12px; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom: 16px; }
+.page-hero p { color: rgba(255,255,255,0.8); font-size: 16px; max-width: 600px; line-height: 1.7; }
+.area-content { padding: 64px 0; background: var(--white); }
+.area-content__inner { max-width: 800px; }
+.area-content__inner h2 { margin-top: 40px; margin-bottom: 14px; }
+.area-content__inner h2:first-of-type { margin-top: 32px; }
+.area-content__inner p { color: var(--text-muted); margin-bottom: 14px; line-height: 1.8; }
+.area-content__inner ul { margin: 0 0 16px 20px; }
+.area-content__inner li { color: var(--text-muted); margin-bottom: 8px; line-height: 1.7; }
+.facts-box {
+  background: var(--green-lt);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+.facts-box h3 { font-size: 15px; margin-bottom: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+.facts-box ul { margin-left: 20px; }
+.facts-box li { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+.internal-links {
+  background: var(--off-white);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-top: 40px;
+}
+.internal-links h3 { font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; margin-bottom: 10px; }
+.internal-links ul { margin-left: 0; list-style: none; }
+.internal-links li { margin-bottom: 6px; }
+.internal-links a { color: var(--green); font-size: 14px; text-decoration: underline; }
+</style>

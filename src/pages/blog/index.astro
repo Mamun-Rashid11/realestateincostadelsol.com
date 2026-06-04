@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout
+  title="Property Buying Guides | Real Estate in Costa del Sol Blog"
+  description="In-depth guides for UK and US buyers purchasing property in Spain. Market data, legal advice, area comparisons, and investment tips."
+  canonical="https://realestateincostadelsol.com/blog/"
+>
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-animate style="--anim-delay:100ms">Buyer Guides & Market Insights</span>
+      <h1 data-animate style="--anim-delay:220ms">Costa del Sol Property Blog</h1>
+      <p data-animate style="--anim-delay:340ms">Honest, data-driven guides for UK and US buyers. No spin, no sales fluff — just the information you need.</p>
+    </div>
+  </div>
+
+  <section class="blog-listing">
+    <div class="container">
+      {posts.length === 0 ? (
+        <p class="blog-listing__empty">Blog posts coming soon. Check back shortly.</p>
+      ) : (
+        <div class="blog-listing__grid" data-stagger data-stagger-base="100" data-stagger-step="80">
+          {posts.map(post => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              slug={post.slug}
+              pubDate={post.data.pubDate}
+              image={post.data.image}
+              category={post.data.category}
+              featured={post.data.featured}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--green); padding: 80px 0; }
+.page-hero .eyebrow { color: var(--accent); display: block; margin-bottom: 12px; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom: 16px; }
+.page-hero p { color: rgba(255,255,255,0.8); font-size: 16px; max-width: 600px; line-height: 1.7; }
+.blog-listing { padding: 64px 0; background: var(--off-white); }
+.blog-listing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.blog-listing__empty { color: var(--text-muted); font-size: 16px; text-align: center; padding: 40px 0; }
+@media (max-width: 900px) { .blog-listing__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .blog-listing__grid { grid-template-columns: 1fr; } }
+</style>

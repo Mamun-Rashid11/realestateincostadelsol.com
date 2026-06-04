@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real Estate in Costa del Sol — Properties, Villas & Apartments for Sale</title>
+<meta name="description" content="Find villas, apartments and new developments for sale across Costa del Sol, Marbella, Estepona, Fuengirola and the Costa Blanca. Expert guides for UK buyers.">
+<meta property="og:title" content="Real Estate in Costa del Sol — Properties for Sale">
+<meta property="og:description" content="Villas, apartments and new developments across Marbella and the Costa del Sol. Free buyer guides and enquiry service.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://realestateincostadelsol.com">
+<link rel="canonical" href="https://realestateincostadelsol.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =============================================
+   DESIGN SYSTEM — realestateincostadelsol.com
+   ============================================= */
+:root {
+  --green:        #1B3A2D;
+  --green2:       #254D3C;
+  --green3:       #2F6349;
+  --green-mid:    #4A7C62;
+  --green-lt:     #E8F0EB;
+  --green-xlt:    #F2F7F4;
+  --white:        #FFFFFF;
+  --off-white:    #F8FAF8;
+  --border:       #D4E2D9;
+  --border-lt:    #E8F0EB;
+  --text:         #1B3A2D;
+  --text-muted:   #5A7268;
+  --text-light:   #8FAA9A;
+  --accent:       #C8A96E;
+  --accent-dark:  #A88A4E;
+  --serif:        'Playfair Display', Georgia, serif;
+  --sans:         'Plus Jakarta Sans', system-ui, sans-serif;
+  --radius-sm:    4px;
+  --radius-md:    8px;
+  --radius-lg:    12px;
+  --radius-xl:    16px;
+  --shadow-sm:    0 1px 3px rgba(27,58,45,0.08);
+  --shadow-md:    0 4px 16px rgba(27,58,45,0.1);
+  --shadow-lg:    0 12px 40px rgba(27,58,45,0.14);
+  --transition:   0.22s ease;
+  --container:    1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+.container { max-width: var(--container); margin: 0 auto; padding: 0 40px; }
+.container-sm { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+
+/* ---- TYPOGRAPHY ---- */
+h1 { font-family: var(--serif); font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; }
+h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 600; line-height: 1.4; }
+em { font-style: italic; }
+.eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+}
+.eyebrow-accent { color: var(--accent); }
+
+/* ---- BUTTONS ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  border: none;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+.btn-primary    { background: var(--green); color: #fff; }
+.btn-primary:hover { background: var(--green2); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn-white      { background: #fff; color: var(--green); }
+.btn-white:hover{ background: var(--green-lt); }
+.btn-outline    { background: transparent; color: var(--green); border: 1.5px solid var(--border); }
+.btn-outline:hover { border-color: var(--green); }
+.btn-outline-white { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.35); }
+.btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+.btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ---- NAV ---- */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  height: 68px;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.nav-logo-main {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1.2;
+}
+.nav-logo-main span { color: var(--green-mid); }
+.nav-logo-sub {
+  font-size: 0.65rem;
+  color: var(--text-light);
+  letter-spacing: 0.06em;
+  font-weight: 400;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+}
+.nav-link:hover { color: var(--green); background: var(--green-xlt); }
+.nav-link-dropdown { position: relative; }
+.nav-cta {
+  background: var(--green);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+  margin-left: 8px;
+}
+.nav-cta:hover { background: var(--green2); }
+.nav-mobile-btn { display: none; cursor: pointer; padding: 8px; }
+
+/* ---- HERO ---- */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  background: var(--green);
+}
+.hero-media {
+  position: absolute;
+  inset: 0;
+  background: var(--green2);
+  overflow: hidden;
+}
+.hero-media img,
+.hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+}
+/* Placeholder gradient when no image loaded */
+.hero-media-placeholder {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%, #2F6349 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 20% 80%, #1B3A2D 0%, transparent 70%),
+    linear-gradient(160deg, #254D3C 0%, #1B3A2D 50%, #0D2018 100%);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(11,26,18,0.2) 0%,
+    rgba(11,26,18,0.35) 40%,
+    rgba(11,26,18,0.78) 75%,
+    rgba(11,26,18,0.94) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 60px 40px 0;
+  max-width: var(--container);
+  margin: 0 auto;
+  width: 100%;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.hero-eyebrow-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: blink 2.5s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hero-h1 { color: #fff; max-width: 760px; margin-bottom: 18px; }
+.hero-h1 em { color: var(--accent); font-style: italic; }
+.hero-sub {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.62);
+  max-width: 580px;
+  line-height: 1.75;
+  margin-bottom: 36px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+
+/* Hero search */
+.hero-search {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  box-shadow: var(--shadow-lg);
+  margin: 0 -40px;
+  border-radius: 0;
+  border-top: 1px solid var(--border-lt);
+}
+.hs-group {
+  flex: 1;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+.hs-group + .hs-group { border-left: 1px solid var(--border); }
+.hs-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  margin-bottom: 4px;
+}
+.hs-select {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.hs-btn-wrap {
+  padding: 0 0 0 20px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.hs-btn {
+  background: var(--green);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hs-btn:hover { background: var(--green2); }
+.hs-btn svg { width: 16px; height: 16px; }
+
+/* ---- STATS STRIP ---- */
+.stats-strip {
+  background: var(--green);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.stats-inner {
+  display: flex;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.stat-item {
+  flex: 1;
+  padding: 22px 40px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ---- SECTION BASE ---- */
+.section { padding: 80px 0; }
+.section-sm { padding: 56px 0; }
+.section-header { margin-bottom: 48px; }
+.section-header .eyebrow { margin-bottom: 12px; display: block; }
+.section-header h2 { margin-bottom: 14px; }
+.section-header p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 560px;
+  line-height: 1.75;
+}
+
+/* ---- KEYWORD PILLS ---- */
+.kw-strip {
+  background: var(--off-white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+}
+.kw-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.kw-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.kw-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.kw-pill {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--green);
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.kw-pill:hover, .kw-pill.active {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+
+/* ---- AREAS GRID ---- */
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.area-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  color: inherit;
+}
+.area-card:hover {
+  border-color: var(--green);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.area-card.featured {
+  background: var(--green);
+  border-color: var(--green);
+  grid-row: span 2;
+}
+.area-icon {
+  width: 40px; height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--green-lt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+.area-icon-white { background: rgba(255,255,255,0.12); }
+.area-icon svg { width: 18px; height: 18px; }
+.area-name { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.area-name-white { color: #fff; }
+.area-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; flex: 1; margin-bottom: 16px; }
+.area-desc-white { color: rgba(255,255,255,0.55); }
+.area-footer {
+  padding-top: 14px;
+  border-top: 1px solid var(--border-lt);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.area-footer-dark { border-top-color: rgba(255,255,255,0.1); }
+.area-vol { font-size: 0.72rem; font-weight: 600; color: var(--green-mid); letter-spacing: 0.03em; }
+.area-vol-white { color: rgba(255,255,255,0.4); }
+.area-price { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--text); }
+.area-price-white { color: var(--accent); }
+.area-arrow { color: var(--green-mid); font-size: 1rem; }
+.area-arrow-white { color: rgba(255,255,255,0.4); }
+
+/* Featured area extra content */
+.area-featured-img {
+  width: 100%;
+  height: 140px;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.area-featured-img-inner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.area-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+/* ---- PROPERTY TYPES ---- */
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.type-card {
+  background: var(--green-xlt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  color: inherit;
+}
+.type-card:hover {
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.type-card:hover .type-name,
+.type-card:hover .type-sub,
+.type-card:hover .type-count,
+.type-card:hover .type-kw { color: rgba(255,255,255,0.9); }
+.type-card:hover .type-kw { color: var(--accent); }
+.type-card:hover .type-icon-box { background: rgba(255,255,255,0.12); }
+.type-card:hover .type-icon-box svg { stroke: #fff; }
+.type-icon-box {
+  width: 44px; height: 44px;
+  background: var(--green-lt);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  transition: background var(--transition);
+}
+.type-icon-box svg { width: 20px; height: 20px; stroke: var(--green); transition: stroke var(--transition); }
+.type-name { font-size: 1rem; font-weight: 600; margin-bottom: 4px; transition: color var(--transition); }
+.type-sub  { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5; transition: color var(--transition); }
+.type-count { font-size: 0.8rem; font-weight: 600; color: var(--green); margin-bottom: 4px; transition: color var(--transition); }
+.type-kw   { font-size: 0.72rem; color: var(--green-mid); font-weight: 500; transition: color var(--transition); }
+
+/* ---- BLOG GRID ---- */
+.blog-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+.blog-grid-right { display: flex; flex-direction: column; gap: 16px; }
+.blog-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  color: inherit;
+}
+.blog-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--border); }
+.blog-card-img {
+  width: 100%;
+  background: var(--green-lt);
+  position: relative;
+  overflow: hidden;
+}
+.blog-card-img-main { height: 240px; }
+.blog-card-img-sm   { height: 120px; }
+.blog-card-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blog-card-img-1 { background: #C4D4C0; }
+.blog-card-img-2 { background: #D4CBBC; }
+.blog-card-img-3 { background: #BCC8C4; }
+.blog-card-img-4 { background: #CCC4B0; }
+.blog-card-body { padding: 20px; }
+.blog-card-body-sm { padding: 14px 16px; }
+.blog-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  margin-bottom: 8px;
+}
+.blog-title { font-family: var(--serif); font-size: 1.15rem; line-height: 1.35; margin-bottom: 8px; color: var(--text); }
+.blog-title-sm { font-size: 0.92rem; }
+.blog-excerpt { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 12px; }
+.blog-meta { font-size: 0.75rem; color: var(--text-light); display: flex; gap: 12px; }
+.blog-meta-dot { color: var(--border); }
+
+/* ---- LEAD FORM ---- */
+.lead-section {
+  background: var(--green);
+  padding: 80px 0;
+}
+.lead-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.lead-copy {}
+.lead-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: block;
+}
+.lead-h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.lead-h2 em { color: var(--accent); }
+.lead-desc { font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 32px; }
+.lead-trust { display: flex; flex-direction: column; gap: 12px; }
+.lead-trust-item { display: flex; align-items: center; gap: 12px; }
+.lead-trust-check {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.lead-trust-check svg { width: 10px; height: 10px; stroke: var(--accent); }
+.lead-trust-text { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+
+.lead-form {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+}
+.lead-form-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.lead-form-sub { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 24px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field.full { grid-column: 1 / -1; }
+.form-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.form-input,
+.form-select,
+.form-textarea {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--off-white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 11px 14px;
+  transition: border-color var(--transition), background var(--transition);
+  outline: none;
+  width: 100%;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--green);
+  background: var(--white);
+}
+.form-textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+.form-submit {
+  grid-column: 1 / -1;
+  background: var(--green);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 15px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+.form-submit:hover { background: var(--green2); }
+.form-submit svg { width: 16px; height: 16px; }
+.form-note {
+  grid-column: 1 / -1;
+  font-size: 0.72rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
+/* ---- SITE MAP / ALL PAGES ---- */
+.sitemap-section {
+  background: var(--green-xlt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 0;
+}
+.sitemap-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+.sitemap-col {}
+.sitemap-col-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.sitemap-links { display: flex; flex-direction: column; gap: 8px; }
+.sitemap-link {
+  font-size: 0.85rem;
+  color: var(--green);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--transition);
+}
+.sitemap-link:hover { color: var(--green3); }
+.sitemap-link svg { width: 12px; height: 12px; opacity: 0.4; }
+
+/* ---- FOOTER ---- */
+.site-footer {
+  background: #0D1F16;
+  padding: 56px 0 32px;
+}
+.footer-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 32px;
+}
+.footer-logo-main {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.footer-logo-main span { color: var(--accent); }
+.footer-desc {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.7;
+  max-width: 280px;
+  margin-bottom: 20px;
+}
+.footer-col-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 16px;
+}
+.footer-links-col { display: flex; flex-direction: column; gap: 10px; }
+.footer-link {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+  transition: color var(--transition);
+}
+.footer-link:hover { color: var(--accent); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { font-size: 0.75rem; color: rgba(255,255,255,0.25); transition: color var(--transition); }
+.footer-legal a:hover { color: rgba(255,255,255,0.5); }
+
+/* ---- TRUST BAR ---- */
+.trust-bar {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+}
+.trust-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.trust-item svg { width: 15px; height: 15px; stroke: var(--green-mid); flex-shrink: 0; }
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-content > * {
+  animation: fadeUp 0.7s ease both;
+}
+.hero-eyebrow { animation-delay: 0.1s; }
+.hero-h1      { animation-delay: 0.2s; }
+.hero-sub     { animation-delay: 0.3s; }
+.hero-actions { animation-delay: 0.4s; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1024px) {
+  .areas-grid  { grid-template-columns: 1fr 1fr; }
+  .area-card.featured { grid-row: auto; }
+  .types-grid  { grid-template-columns: 1fr 1fr; }
+  .blog-grid   { grid-template-columns: 1fr; }
+  .blog-grid-right { flex-direction: row; }
+  .lead-inner  { grid-template-columns: 1fr; gap: 40px; }
+  .footer-top  { grid-template-columns: 1fr 1fr; }
+  .sitemap-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .container, .container-sm { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-mobile-btn { display: flex; }
+  .hero-search { flex-direction: column; margin: 0 -20px; gap: 0; }
+  .hs-group + .hs-group { border-left: none; border-top: 1px solid var(--border); }
+  .hs-btn-wrap { padding: 16px 20px; border-top: 1px solid var(--border); }
+  .hs-btn { width: 100%; justify-content: center; }
+  .stats-inner { flex-wrap: wrap; }
+  .stat-item { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .areas-grid  { grid-template-columns: 1fr; }
+  .types-grid  { grid-template-columns: 1fr; }
+  .blog-grid-right { flex-direction: column; }
+  .form-grid   { grid-template-columns: 1fr; }
+  .form-field.full { grid-column: 1; }
+  .footer-top  { grid-template-columns: 1fr; }
+  .sitemap-inner { grid-template-columns: 1fr 1fr; }
+  .trust-inner { gap: 20px; }
+  h1 { font-size: 2.2rem; }
+  .section { padding: 56px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-main">Real Estate in <span>Costa del Sol</span></div>
+      <div class="nav-logo-sub">realestateincostadelsol.com</div>
+    </a>
+    <div class="nav-links">
+      <div class="nav-link-dropdown">
+        <a href="/areas/" class="nav-link">Areas ▾</a>
+      </div>
+      <div class="nav-link-dropdown">
+        <a href="/properties/" class="nav-link">Properties ▾</a>
+      </div>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/buying-guide/" class="nav-link">Buyer guides</a>
+      <a href="/contact/" class="nav-link">Contact</a>
+      <a href="#enquiry" class="nav-cta">Get free advice</a>
+    </div>
+    <button class="nav-mobile-btn" aria-label="Open menu">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round">
+        <path d="M3 6h16M3 11h16M3 16h16"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" aria-label="Hero section">
+  <div class="hero-media" aria-hidden="true">
+    <!-- SWAP THIS: replace .hero-media-placeholder with <img src="your-hero.jpg" alt=""> or <video autoplay muted loop playsinline src="your-video.mp4"></video> -->
+    <div class="hero-media-placeholder"></div>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content container">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-dot" aria-hidden="true"></div>
+      Costa del Sol &nbsp;·&nbsp; Spain &nbsp;·&nbsp; Properties from €120,000
+    </div>
+    <h1 class="hero-h1">Find your home<br>under the <em>Spanish sun</em></h1>
+    <p class="hero-sub">Villas, apartments and new developments for sale across Marbella, Estepona, Fuengirola and the wider Costa del Sol — with free expert guides for UK buyers.</p>
+    <div class="hero-actions">
+      <a href="#areas" class="btn btn-white">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2C5.8 2 4 3.8 4 6c0 3 4 8 4 8s4-5 4-8c0-2.2-1.8-4-4-4z"/><circle cx="8" cy="6" r="1.5"/></svg>
+        Browse areas
+      </a>
+      <a href="/blog/buying-property-spain-uk-buyers/" class="btn btn-outline-white">Buyer guides →</a>
+    </div>
+  </div>
+
+  <!-- SEARCH BAR -->
+  <div class="hero-search" role="search" aria-label="Property search">
+    <div class="hs-group">
+      <div class="hs-label">Area / location</div>
+      <select class="hs-select" aria-label="Select area">
+        <option>All Costa del Sol</option>
+        <option>Marbella</option>
+        <option>Estepona</option>
+        <option>Fuengirola</option>
+        <option>Nerja</option>
+        <option>Costa Blanca</option>
+        <option>Costa Cálida</option>
+        <option>Costa de la Luz</option>
+      </select>
+    </div>
+    <div class="hs-group">
+      <div class="hs-label">Property type</div>
+      <select class="hs-select" aria-label="Select property type">
+        <option>Any type</option>
+        <option>Villa</option>
+        <option>Apartment</option>
+        <option>Penthouse</option>
+        <option>Townhouse</option>
+        <option>New development</option>
+      </select>
+    </div>
+    <div class="hs-group">
+      <div class="hs-label">Budget</div>
+      <select class="hs-select" aria-label="Select budget">
+        <option>Any price</option>
+        <option>Up to €200,000</option>
+        <option>€200k – €400k</option>
+        <option>€400k – €700k</option>
+        <option>€700k – €1M</option>
+        <option>€1M+</option>
+      </select>
+    </div>
+    <div class="hs-group">
+      <div class="hs-label">Bedrooms</div>
+      <select class="hs-select" aria-label="Select bedrooms">
+        <option>Any</option>
+        <option>1+</option>
+        <option>2+</option>
+        <option>3+</option>
+        <option>4+</option>
+      </select>
+    </div>
+    <div class="hs-btn-wrap">
+      <button class="hs-btn" type="button" aria-label="Search properties">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="6.5" cy="6.5" r="4"/><path d="M11 11l2.5 2.5"/></svg>
+        Search properties
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<div class="stats-strip" aria-label="Key statistics">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">2,400+</div>
+      <div class="stat-label">Active listings</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4 Coasts</div>
+      <div class="stat-label">Coverage area</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">€120k</div>
+      <div class="stat-label">Entry price</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Free</div>
+      <div class="stat-label">Buyer advice</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1l1.8 3.6L14 5.4l-3 2.9.7 4.1L8 10.4l-3.7 2 .7-4.1L2 5.4l4.2-.8L8 1z"/></svg>
+      Free service — no fees to buyers
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 11l-3-3"/></svg>
+      Expert guides for UK buyers
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 1.5"/></svg>
+      Reply within 24 hours
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M2 6h12"/></svg>
+      Trusted local agents
+    </div>
+  </div>
+</div>
+
+<!-- ===== KEYWORD PILLS ===== -->
+<div class="kw-strip">
+  <div class="kw-inner">
+    <div class="kw-label">Browse:</div>
+    <div class="kw-pills">
+      <a href="/costa-del-sol/" class="kw-pill active">Costa del Sol property for sale</a>
+      <a href="/villas-for-sale-costa-del-sol/" class="kw-pill">Villas for sale</a>
+      <a href="/apartments-costa-del-sol/" class="kw-pill">Apartments</a>
+      <a href="/costa-del-sol/marbella/" class="kw-pill">Marbella real estate</a>
+      <a href="/new-developments-costa-del-sol/" class="kw-pill">New developments</a>
+      <a href="/costa-blanca/" class="kw-pill">Costa Blanca</a>
+      <a href="/blog/buying-property-spain-uk-buyers/" class="kw-pill">Buying guide Spain</a>
+      <a href="/homes-for-sale-costa-del-sol/" class="kw-pill">Homes for sale</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== AREAS ===== -->
+<section class="section" id="areas">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Explore areas</span>
+      <h2>Properties across<br><em>every coast</em></h2>
+      <p>From the glamour of Marbella to the quiet coves of Murcia — find the area that fits your lifestyle and budget.</p>
+    </div>
+    <div class="areas-grid">
+
+      <!-- Featured: Marbella -->
+      <a href="/costa-del-sol/marbella/" class="area-card featured" style="grid-row:span 2;">
+        <span class="area-tag">Most searched</span>
+        <div class="area-featured-img">
+          <!-- SWAP: <img src="marbella.jpg" alt="Marbella Costa del Sol"> -->
+          <div class="area-featured-img-inner">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.2"><path d="M24 6L6 20h5v22h26V20h5L24 6z"/><rect x="18" y="28" width="12" height="14" rx="1"/><rect x="20" y="14" width="8" height="8" rx="1"/></svg>
+          </div>
+        </div>
+        <div class="area-icon area-icon-white">
+          <svg viewBox="0 0 18 18" fill="none" stroke="rgba(200,169,110,1)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2C6.8 2 5 3.8 5 6c0 3.5 4 9 4 9s4-5.5 4-9c0-2.2-1.8-4-4-4z"/><circle cx="9" cy="6" r="1.5"/></svg>
+        </div>
+        <div class="area-name area-name-white">Marbella</div>
+        <div class="area-desc area-desc-white">The crown jewel of the Costa del Sol. Luxury villas, world-class golf courses, Puerto Banús marina, and an international community that makes it the most desirable address on the Spanish coast.</div>
+        <div class="area-footer area-footer-dark">
+          <div class="area-vol area-vol-white">880/mo UK searches</div>
+          <div class="area-price area-price-white">From €200k →</div>
+        </div>
+      </a>
+
+      <!-- Estepona -->
+      <a href="/costa-del-sol/estepona/" class="area-card">
+        <div class="area-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="var(--green)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L2 7.5h2V16h10V7.5h2L9 2z"/></svg>
+        </div>
+        <div class="area-name">Estepona</div>
+        <div class="area-desc">A fast-growing resort town with beautiful beaches, a charming old town, and a wave of new developments making it the smart buy on the Costa del Sol.</div>
+        <div class="area-footer">
+          <div class="area-vol">High demand</div>
+          <div class="area-price">From €150k →</div>
+        </div>
+      </a>
+
+      <!-- Fuengirola -->
+      <a href="/costa-del-sol/fuengirola/" class="area-card">
+        <div class="area-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="var(--green)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="6"/><path d="M9 6v4M9 13v.5"/></svg>
+        </div>
+        <div class="area-name">Fuengirola</div>
+        <div class="area-desc">Lively, affordable, and well-connected. The largest British expat community on the coast, excellent transport links, and some of the best-value apartments on the Costa del Sol.</div>
+        <div class="area-footer">
+          <div class="area-vol">Best value</div>
+          <div class="area-price">From €120k →</div>
+        </div>
+      </a>
+
+      <!-- Nerja -->
+      <a href="/costa-del-sol/nerja/" class="area-card">
+        <div class="area-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="var(--green)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14L9 5l6 9"/><path d="M6 10.5h6"/></svg>
+        </div>
+        <div class="area-name">Nerja</div>
+        <div class="area-desc">A picturesque whitewashed village east of Málaga, loved for its dramatic cliffs, hidden coves, and authentic Spanish atmosphere. Away from the tourist masses.</div>
+        <div class="area-footer">
+          <div class="area-vol">Hidden gem</div>
+          <div class="area-price">From €180k →</div>
+        </div>
+      </a>
+
+      <!-- Costa Blanca -->
+      <a href="/costa-blanca/" class="area-card">
+        <div class="area-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="var(--green)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c2-3 4-3 6-1.5S13 12 15 9"/><path d="M3 11c2-2 4-1 6 0s4-1 6-3"/></svg>
+        </div>
+        <div class="area-name">Costa Blanca</div>
+        <div class="area-desc">Alicante, Torrevieja, Benidorm. Year-round sunshine and exceptional value — some of the most affordable sea-view apartments in Spain. 720 monthly searches from the US alone.</div>
+        <div class="area-footer">
+          <div class="area-vol">720/mo US searches</div>
+          <div class="area-price">From €90k →</div>
+        </div>
+      </a>
+
+      <!-- Costa Calida + Luz -->
+      <a href="/costa-calida/" class="area-card">
+        <div class="area-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="var(--green)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><path d="M9 1v2M9 15v2M1 9h2M15 9h2"/></svg>
+        </div>
+        <div class="area-name">Costa Cálida &amp; de la Luz</div>
+        <div class="area-desc">Murcia, Cádiz, and Huelva. Pristine beaches, unspoilt natural reserves, and some of the lowest entry prices in Spain. The emerging choice for buyers seeking value and authenticity.</div>
+        <div class="area-footer">
+          <div class="area-vol">Emerging market</div>
+          <div class="area-price">From €110k →</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROPERTY TYPES ===== -->
+<section class="section" style="padding-top:0;" id="properties">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Browse by property type</span>
+      <h2><em>Every type</em> of property</h2>
+      <p>Whether you're looking for a beachfront apartment, a luxury villa, or an off-plan new development — we cover the full market.</p>
+    </div>
+    <div class="types-grid">
+      <a href="/villas-for-sale-costa-del-sol/" class="type-card">
+        <div class="type-icon-box">
+          <svg viewBox="0 0 20 20" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2L2 8.5h2V18h12V8.5h2L10 2z"/><rect x="7" y="11" width="6" height="7" rx="0.5"/></svg>
+        </div>
+        <div class="type-name">Villas for sale</div>
+        <div class="type-sub">Detached and semi-detached villas across the Costa del Sol — from modest townhouses to multi-million euro mansions.</div>
+        <div class="type-count">390+ listed</div>
+        <div class="type-kw">↗ 390/mo UK searches</div>
+      </a>
+      <a href="/apartments-costa-del-sol/" class="type-card">
+        <div class="type-icon-box">
+          <svg viewBox="0 0 20 20" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="14" height="14" rx="1.5"/><path d="M3 9h14M10 3v14"/></svg>
+        </div>
+        <div class="type-name">Apartments for sale</div>
+        <div class="type-sub">Sea-view apartments, penthouses, and ground floor units with gardens. The most popular property type for first-time buyers in Spain.</div>
+        <div class="type-count">1,200+ listed</div>
+        <div class="type-kw">↗ 720/mo US · 390/mo UK searches</div>
+      </a>
+      <a href="/new-developments-costa-del-sol/" class="type-card">
+        <div class="type-icon-box">
+          <svg viewBox="0 0 20 20" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17V7l6-4 6 4v10"/><path d="M8 17v-5h4v5"/><path d="M2 17h16"/></svg>
+        </div>
+        <div class="type-name">New developments</div>
+        <div class="type-sub">Off-plan and newly completed projects across the Costa del Sol. Buy at launch prices with modern specifications and developer guarantees.</div>
+        <div class="type-count">80+ projects</div>
+        <div class="type-kw">↗ Low competition — easy to rank</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BLOG ===== -->
+<section class="section" style="background:var(--off-white); border-top:1px solid var(--border);" id="blog">
+  <div class="container">
+    <div class="section-header" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;">
+      <div>
+        <span class="eyebrow" style="display:block;margin-bottom:10px;">From the blog</span>
+        <h2 style="margin-bottom:10px;">Guides for <em>smart buyers</em></h2>
+        <p>Real price data and honest area guides, written for British and international buyers navigating the Spanish property market.</p>
+      </div>
+      <a href="/blog/" class="btn btn-outline" style="flex-shrink:0;">All articles →</a>
+    </div>
+    <div class="blog-grid">
+      <!-- FEATURED POST -->
+      <a href="/blog/what-300000-buys-marbella/" class="blog-card">
+        <div class="blog-card-img blog-card-img-main blog-card-img-1 blog-card-img-placeholder">
+          <!-- SWAP: <img src="marbella-property.jpg" alt="Marbella property guide"> -->
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Marbella · Price guide</div>
+          <div class="blog-title">What €300,000 actually buys you in Marbella right now</div>
+          <div class="blog-excerpt">A detailed breakdown of the Marbella property market in 2026 — from Golden Mile apartments to Elviria villas. Real listings, real prices, no spin.</div>
+          <div class="blog-meta">
+            <span>June 2026</span>
+            <span class="blog-meta-dot">·</span>
+            <span>6 min read</span>
+            <span class="blog-meta-dot">·</span>
+            <span>UK buyers</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- RIGHT COLUMN -->
+      <div class="blog-grid-right">
+        <a href="/blog/buying-property-spain-uk-citizens-2026/" class="blog-card">
+          <div class="blog-card-img blog-card-img-sm blog-card-img-2 blog-card-img-placeholder"></div>
+          <div class="blog-card-body blog-card-body-sm">
+            <div class="blog-tag">Buyer guide</div>
+            <div class="blog-title blog-title-sm">Buying property in Spain as a UK citizen — complete 2026 guide</div>
+            <div class="blog-meta">May 2026 · 12 min read</div>
+          </div>
+        </a>
+        <a href="/blog/estepona-vs-fuengirola/" class="blog-card">
+          <div class="blog-card-img blog-card-img-sm blog-card-img-3 blog-card-img-placeholder"></div>
+          <div class="blog-card-body blog-card-body-sm">
+            <div class="blog-tag">Area comparison</div>
+            <div class="blog-title blog-title-sm">Estepona vs Fuengirola — which is better for families in 2026?</div>
+            <div class="blog-meta">May 2026 · 8 min read</div>
+          </div>
+        </a>
+        <a href="/blog/best-rental-yield-costa-del-sol/" class="blog-card">
+          <div class="blog-card-img blog-card-img-sm blog-card-img-4 blog-card-img-placeholder"></div>
+          <div class="blog-card-body blog-card-body-sm">
+            <div class="blog-tag">Investment</div>
+            <div class="blog-title blog-title-sm">Best rental yield areas on the Costa del Sol in 2026</div>
+            <div class="blog-meta">April 2026 · 7 min read</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LEAD FORM ===== -->
+<section class="lead-section" id="enquiry">
+  <div class="lead-inner">
+    <div class="lead-copy">
+      <span class="lead-eyebrow">Free enquiry service</span>
+      <h2 class="lead-h2">Tell us what you're<br><em>looking for</em></h2>
+      <p class="lead-desc">We'll match your requirements with available properties across the Costa del Sol and connect you with a trusted local agent — completely free, no obligation.</p>
+      <div class="lead-trust">
+        <div class="lead-trust-item">
+          <div class="lead-trust-check">
+            <svg viewBox="0 0 10 10" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 5l2.5 2.5 4.5-4.5"/></svg>
+          </div>
+          <div class="lead-trust-text">100% free — no fees charged to buyers</div>
+        </div>
+        <div class="lead-trust-item">
+          <div class="lead-trust-check">
+            <svg viewBox="0 0 10 10" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 5l2.5 2.5 4.5-4.5"/></svg>
+          </div>
+          <div class="lead-trust-text">We reply within 24 hours, often same day</div>
+        </div>
+        <div class="lead-trust-item">
+          <div class="lead-trust-check">
+            <svg viewBox="0 0 10 10" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 5l2.5 2.5 4.5-4.5"/></svg>
+          </div>
+          <div class="lead-trust-text">Your data is never sold or shared with third parties</div>
+        </div>
+        <div class="lead-trust-item">
+          <div class="lead-trust-check">
+            <svg viewBox="0 0 10 10" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 5l2.5 2.5 4.5-4.5"/></svg>
+          </div>
+          <div class="lead-trust-text">Trusted network of licensed Spanish agents</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lead-form">
+      <div class="lead-form-title">Send your property enquiry</div>
+      <div class="lead-form-sub">Fill in the form below — the more detail the better.</div>
+      <form class="form-grid" action="/contact/success/" method="POST">
+        <div class="form-field">
+          <label class="form-label" for="name">Your name</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="e.g. James Wilson" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="email">Email address</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="budget">Budget</label>
+          <select class="form-select" id="budget" name="budget">
+            <option value="">Select budget</option>
+            <option>Up to €150,000</option>
+            <option>€150,000 – €300,000</option>
+            <option>€300,000 – €500,000</option>
+            <option>€500,000 – €1,000,000</option>
+            <option>€1,000,000+</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="area">Preferred area</label>
+          <select class="form-select" id="area" name="area">
+            <option value="">Select area</option>
+            <option>Marbella</option>
+            <option>Estepona</option>
+            <option>Fuengirola</option>
+            <option>Nerja</option>
+            <option>Costa Blanca</option>
+            <option>Costa Cálida</option>
+            <option>Costa de la Luz</option>
+            <option>Open to suggestions</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="type">Property type</label>
+          <select class="form-select" id="type" name="type">
+            <option value="">Select type</option>
+            <option>Villa</option>
+            <option>Apartment</option>
+            <option>Penthouse</option>
+            <option>Townhouse</option>
+            <option>New development</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="bedrooms">Bedrooms</label>
+          <select class="form-select" id="bedrooms" name="bedrooms">
+            <option value="">Select</option>
+            <option>1 bedroom</option>
+            <option>2 bedrooms</option>
+            <option>3 bedrooms</option>
+            <option>4+ bedrooms</option>
+          </select>
+        </div>
+        <div class="form-field full">
+          <label class="form-label" for="message">Anything else we should know?</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="e.g. close to the beach, must have a pool, ideally with garage, holiday rental potential important to us..."></textarea>
+        </div>
+        <button class="form-submit" type="submit">
+          Send my enquiry — it's free
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9 4l5 4-5 4"/></svg>
+        </button>
+        <div class="form-note">By submitting this form you agree to our <a href="/privacy/" style="color:var(--text-muted);text-decoration:underline;">privacy policy</a>. We will never sell your data.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SITEMAP STRIP ===== -->
+<div class="sitemap-section">
+  <div class="sitemap-inner">
+    <div class="sitemap-col">
+      <div class="sitemap-col-title">Areas</div>
+      <div class="sitemap-links">
+        <a href="/costa-del-sol/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Costa del Sol
+        </a>
+        <a href="/costa-del-sol/marbella/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Marbella
+        </a>
+        <a href="/costa-del-sol/estepona/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Estepona
+        </a>
+        <a href="/costa-del-sol/fuengirola/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Fuengirola
+        </a>
+        <a href="/costa-del-sol/nerja/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Nerja
+        </a>
+        <a href="/costa-blanca/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Costa Blanca
+        </a>
+        <a href="/costa-calida/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Costa Cálida
+        </a>
+        <a href="/costa-de-la-luz/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Costa de la Luz
+        </a>
+      </div>
+    </div>
+    <div class="sitemap-col">
+      <div class="sitemap-col-title">Property types</div>
+      <div class="sitemap-links">
+        <a href="/villas-for-sale-costa-del-sol/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Villas for sale
+        </a>
+        <a href="/apartments-costa-del-sol/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Apartments for sale
+        </a>
+        <a href="/new-developments-costa-del-sol/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          New developments
+        </a>
+        <a href="/homes-for-sale-costa-del-sol/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Homes for sale
+        </a>
+      </div>
+    </div>
+    <div class="sitemap-col">
+      <div class="sitemap-col-title">Buyer guides</div>
+      <div class="sitemap-links">
+        <a href="/blog/buying-property-spain-uk-citizens-2026/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Buying in Spain — UK guide
+        </a>
+        <a href="/blog/costa-del-sol-property-prices/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Property prices 2026
+        </a>
+        <a href="/blog/best-rental-yield-costa-del-sol/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Best rental yield areas
+        </a>
+        <a href="/blog/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          All articles
+        </a>
+      </div>
+    </div>
+    <div class="sitemap-col">
+      <div class="sitemap-col-title">Contact</div>
+      <div class="sitemap-links">
+        <a href="#enquiry" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Send an enquiry
+        </a>
+        <a href="/contact/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          Contact page
+        </a>
+        <a href="/about/" class="sitemap-link">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          About this site
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-main">Real Estate in <span>Costa del Sol</span></div>
+        <p class="footer-desc">Your guide to buying property on Spain's most beautiful coastline. Honest area guides, real price data, and a free enquiry service connecting UK buyers with trusted local agents.</p>
+        <a href="#enquiry" class="btn btn-outline-white" style="font-size:0.8rem;padding:10px 20px;">Get free buyer advice →</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Areas</div>
+        <div class="footer-links-col">
+          <a href="/costa-del-sol/" class="footer-link">Costa del Sol</a>
+          <a href="/costa-del-sol/marbella/" class="footer-link">Marbella</a>
+          <a href="/costa-del-sol/estepona/" class="footer-link">Estepona</a>
+          <a href="/costa-del-sol/fuengirola/" class="footer-link">Fuengirola</a>
+          <a href="/costa-del-sol/nerja/" class="footer-link">Nerja</a>
+          <a href="/costa-blanca/" class="footer-link">Costa Blanca</a>
+          <a href="/costa-calida/" class="footer-link">Costa Cálida</a>
+          <a href="/costa-de-la-luz/" class="footer-link">Costa de la Luz</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Properties</div>
+        <div class="footer-links-col">
+          <a href="/villas-for-sale-costa-del-sol/" class="footer-link">Villas for sale</a>
+          <a href="/apartments-costa-del-sol/" class="footer-link">Apartments</a>
+          <a href="/new-developments-costa-del-sol/" class="footer-link">New developments</a>
+          <a href="/homes-for-sale-costa-del-sol/" class="footer-link">Homes for sale</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Information</div>
+        <div class="footer-links-col">
+          <a href="/blog/" class="footer-link">Blog &amp; guides</a>
+          <a href="/about/" class="footer-link">About</a>
+          <a href="/contact/" class="footer-link">Contact</a>
+          <a href="/privacy/" class="footer-link">Privacy policy</a>
+          <a href="/cookies/" class="footer-link">Cookie policy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 realestateincostadelsol.com — All rights reserved</div>
+      <div class="footer-legal">
+        <a href="/privacy/">Privacy</a>
+        <a href="/cookies/">Cookies</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelector('.hs-btn').addEventListener('click', function() {
+  const area = document.querySelector('#areas .hs-select, .hs-select').value;
+  const url = '/properties/?area=' + encodeURIComponent(document.querySelectorAll('.hs-select')[0].value)
+    + '&type=' + encodeURIComponent(document.querySelectorAll('.hs-select')[1].value)
+    + '&budget=' + encodeURIComponent(document.querySelectorAll('.hs-select')[2].value)
+    + '&beds=' + encodeURIComponent(document.querySelectorAll('.hs-select')[3].value);
+  window.location.href = url;
+});
+
+document.querySelectorAll('.kw-pill').forEach(function(pill) {
+  pill.addEventListener('click', function() {
+    document.querySelectorAll('.kw-pill').forEach(function(p) { p.classList.remove('active'); });
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
