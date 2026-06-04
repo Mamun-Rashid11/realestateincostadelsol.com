@@ -6,26 +6,36 @@ const navLinks = [
   { label: 'Apartments', href: '/apartments-costa-del-sol/' },
   { label: 'New Developments', href: '/new-developments-costa-del-sol/' },
   { label: 'Blog', href: '/blog/' },
-  { label: 'Contact', href: '/contact/' },
 ];
 ---
 <nav class="nav">
   <div class="container nav__inner">
+
+    <!-- 1. Logo -->
     <a href="/" class="nav__logo">
       <span class="nav__logo-icon">R</span>
       <span class="nav__logo-text">Real Estate<br><em>Costa del Sol</em></span>
     </a>
 
-    <button class="nav__hamburger" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-
+    <!-- 2. Links (centre) -->
     <ul class="nav__links" id="navLinks">
       {navLinks.map(link => (
         <li><a href={link.href}>{link.label}</a></li>
       ))}
-      <li><a href="/contact/" class="nav__cta btn btn-accent">Free Enquiry</a></li>
+      <!-- mobile-only CTA inside dropdown -->
+      <li class="nav__links-mobile-cta">
+        <a href="/contact/" class="btn btn-accent">Free Enquiry</a>
+      </li>
     </ul>
+
+    <!-- 3. CTA (right) — desktop only -->
+    <a href="/contact/" class="nav__cta btn btn-accent">Free Enquiry</a>
+
+    <!-- hamburger — mobile only -->
+    <button class="nav__hamburger" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
   </div>
 </nav>
 
@@ -40,13 +50,16 @@ const navLinks = [
 .nav__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   height: 68px;
+  gap: 16px;
 }
+
+/* 1 — Logo */
 .nav__logo {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
   color: var(--white);
 }
 .nav__logo-icon {
@@ -61,6 +74,7 @@ const navLinks = [
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 .nav__logo-text {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -74,10 +88,14 @@ const navLinks = [
   color: var(--accent);
   font-weight: 300;
 }
+
+/* 2 — Links (centre) */
 .nav__links {
+  flex: 1;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   list-style: none;
 }
 .nav__links a {
@@ -87,9 +105,17 @@ const navLinks = [
   padding: 6px 10px;
   border-radius: 4px;
   transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
 }
 .nav__links a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
-.nav__cta { margin-left: 8px; }
+.nav__links-mobile-cta { display: none; }
+
+/* 3 — CTA button (right) */
+.nav__cta {
+  flex-shrink: 0;
+}
+
+/* Hamburger */
 .nav__hamburger {
   display: none;
   flex-direction: column;
@@ -98,6 +124,7 @@ const navLinks = [
   border: none;
   cursor: pointer;
   padding: 4px;
+  flex-shrink: 0;
 }
 .nav__hamburger span {
   display: block;
@@ -107,8 +134,14 @@ const navLinks = [
   border-radius: 2px;
   transition: 0.2s;
 }
+
+/* ── Mobile ── */
 @media (max-width: 900px) {
+  .nav__inner { justify-content: space-between; }
   .nav__hamburger { display: flex; }
+  .nav__cta { display: none; }
+  .nav__links-mobile-cta { display: block; }
+
   .nav__links {
     display: none;
     position: absolute;
@@ -124,12 +157,17 @@ const navLinks = [
   }
   .nav__links.open { display: flex; }
   .nav__links a { padding: 10px 12px; font-size: 15px; }
-  .nav__cta { margin-left: 0; text-align: center; }
+  .nav__links-mobile-cta a {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    padding: 12px;
+  }
 }
 </style>
 
 <script>
 const toggle = document.getElementById('navToggle');
-const links = document.getElementById('navLinks');
+const links  = document.getElementById('navLinks');
 toggle?.addEventListener('click', () => links?.classList.toggle('open'));
 </script>
