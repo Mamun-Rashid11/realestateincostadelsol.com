@@ -2,17 +2,23 @@
 interface Props {
   area?: string;
   prefix?: string;
+  required_phone?: boolean;
+  property_ref?: string;
+  property_title?: string;
+  property_price?: string;
 }
-const { area = '', prefix = 'ef' } = Astro.props;
+const { area = '', prefix = 'ef', required_phone = false, property_ref, property_title, property_price } = Astro.props;
 ---
 <form
   class="enquiry-card"
-  name="property-enquiry"
   method="POST"
-  action="/thank-you/"
-  data-netlify="true"
+  action="https://api.web3forms.com/submit"
 >
-  <input type="hidden" name="form-name" value="property-enquiry" />
+  <input type="hidden" name="access_key" value="55b564a5-c2d5-4097-8e7b-feb2fa9edc3e" />
+<input type="hidden" name="subject" value="New property enquiry — realestateincostadelsol.com" />
+  {property_ref && <input type="hidden" name="property_ref" value={property_ref} />}
+  {property_title && <input type="hidden" name="property_title" value={property_title} />}
+  {property_price && <input type="hidden" name="property_price" value={property_price} />}
 
   <div class="enquiry-card__row">
     <div class="enquiry-card__field">
@@ -23,6 +29,11 @@ const { area = '', prefix = 'ef' } = Astro.props;
       <label for={`${prefix}-email`}>Email Address *</label>
       <input type="email" id={`${prefix}-email`} name="email" required placeholder="your@email.com" />
     </div>
+  </div>
+
+  <div class="enquiry-card__field">
+    <label for={`${prefix}-phone`}>Phone Number {required_phone ? '*' : '(optional)'}</label>
+    <input type="tel" id={`${prefix}-phone`} name="phone" placeholder="+44 7700 900000" required={required_phone || undefined} />
   </div>
 
   <div class="enquiry-card__row">
@@ -81,6 +92,34 @@ const { area = '', prefix = 'ef' } = Astro.props;
   <button type="submit" class="btn btn-primary enquiry-card__submit">Send Free Enquiry</button>
   <p class="enquiry-card__note">We typically respond within 2 business hours. Your details are never shared.</p>
 </form>
+
+<script>
+  document.querySelectorAll('.enquiry-card').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(form),
+        });
+        if (res.ok) {
+          window.location.href = '/thank-you/';
+        } else {
+          btn.textContent = 'Send Free Enquiry';
+          btn.disabled = false;
+          alert('Something went wrong. Please try again.');
+        }
+      } catch {
+        btn.textContent = 'Send Free Enquiry';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  });
+</script>
 
 <style>
 .enquiry-card {
